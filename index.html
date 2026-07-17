@@ -44,21 +44,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 5rem;
+  height: 140px;
+  padding: 0 5rem;
   background: rgba(250,247,244,0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-}
-
-.nav-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  color: var(--ink);
-  cursor: pointer;
-  text-decoration: none;
+  overflow: hidden;
 }
 
 .nav-links {
@@ -74,7 +66,6 @@ nav {
   text-transform: uppercase;
   color: var(--ink-mid);
   text-decoration: none;
-  transition: color 0.2s;
   cursor: pointer;
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
@@ -85,13 +76,7 @@ nav {
 .nav-links a.active { color: var(--ink); border-bottom-color: var(--rose); }
 
 /* ── SHARED LAYOUT ── */
-.wrap {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 5rem;
-}
-
-.pt-nav { padding-top: 8rem; }
+.pt-nav { padding-top: 220px; }
 
 .section-eyebrow {
   display: inline-block;
@@ -110,7 +95,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   padding: 0 5rem;
-  padding-top: 80px;
+  padding-top: 220px;
   position: relative;
 }
 
@@ -124,10 +109,7 @@ nav {
   margin-bottom: 2rem;
 }
 
-.hero-name em {
-  font-style: italic;
-  color: var(--rose);
-}
+.hero-name em { font-style: italic; color: var(--rose); }
 
 .hero-sub {
   font-family: 'DM Sans', sans-serif;
@@ -140,11 +122,7 @@ nav {
   line-height: 1.7;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 0.875rem;
-  flex-wrap: wrap;
-}
+.hero-actions { display: flex; gap: 0.875rem; flex-wrap: wrap; }
 
 .btn {
   display: inline-block;
@@ -162,23 +140,9 @@ nav {
   text-decoration: none;
 }
 
-.btn:hover {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--bg);
-}
-
-.btn-fill {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--bg);
-}
-
-.btn-fill:hover {
-  background: var(--rose);
-  border-color: var(--rose);
-  color: white;
-}
+.btn:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.btn-fill { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.btn-fill:hover { background: var(--rose); border-color: var(--rose); color: white; }
 
 .hero-scroll-hint {
   position: absolute;
@@ -225,11 +189,7 @@ nav {
   border: 1px solid transparent;
 }
 
-.work-card:hover {
-  background: var(--blush);
-  border-color: var(--blush);
-  transform: translateY(-2px);
-}
+.work-card:hover { background: var(--blush); border-color: var(--blush); transform: translateY(-2px); }
 
 .work-card-tag {
   font-size: 0.65rem;
@@ -249,12 +209,7 @@ nav {
   color: var(--ink);
 }
 
-.work-card-desc {
-  font-size: 0.85rem;
-  color: var(--ink-mid);
-  line-height: 1.65;
-  font-weight: 300;
-}
+.work-card-desc { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.65; font-weight: 300; }
 
 .work-card-arrow {
   position: absolute;
@@ -265,17 +220,10 @@ nav {
   transition: color 0.2s, transform 0.2s;
 }
 
-.work-card:hover .work-card-arrow {
-  color: var(--rose);
-  transform: translate(3px, -3px);
-}
+.work-card:hover .work-card-arrow { color: var(--rose); transform: translate(3px, -3px); }
 
 /* ── DIVIDER ── */
-.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 0 5rem;
-}
+.divider { border: none; border-top: 1px solid var(--border); margin: 0 5rem; }
 
 /* ── ABOUT ── */
 .about-layout {
@@ -283,7 +231,7 @@ nav {
   grid-template-columns: 1fr 1.5fr;
   gap: 6rem;
   align-items: start;
-  padding: 6rem 5rem;
+  padding: 220px 5rem 6rem; 
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -297,11 +245,7 @@ nav {
   margin-bottom: 3rem;
 }
 
-.about-display em {
-  font-style: italic;
-  color: var(--rose);
-}
-
+.about-display em { font-style: italic; color: var(--rose); }
 .skills-stack { margin-top: 0.5rem; }
 
 .skill-row {
@@ -314,23 +258,10 @@ nav {
 }
 
 .skill-row:first-child { border-top: 1px solid var(--border); }
-
 .skill-name { color: var(--ink); font-weight: 400; }
+.skill-cat { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
 
-.skill-cat {
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-
-.about-body p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--ink-mid);
-  margin-bottom: 1.5rem;
-  font-weight: 300;
-}
+.about-body p { font-size: 1rem; line-height: 1.85; color: var(--ink-mid); margin-bottom: 1.5rem; font-weight: 300; }
 
 .about-body p.lead {
   font-family: 'Fraunces', serif;
@@ -341,20 +272,11 @@ nav {
   margin-bottom: 2rem;
 }
 
-/* ── PORTFOLIO PAGE ── */
+/* ── PORTFOLIO ── */
 .portfolio-wrap {
-  padding: 6rem 5rem;
+  padding: 220px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
-}
-
-.portfolio-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
 .portfolio-title {
@@ -364,50 +286,58 @@ nav {
   line-height: 1.05;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
+/* Equal height cards */
+.card-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
 
 .portfolio-card {
   background: var(--bg2);
-  padding: 1.75rem 1.75rem 2.5rem;
+  padding: 1.75rem 1.75rem 3rem;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
-  border: 1px solid transparent;
+  border: 0.5px solid var(--border);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.portfolio-card:hover {
-  background: var(--blush);
-  border-color: var(--blush);
-  transform: translateY(-2px);
-}
+.portfolio-card:hover { background: var(--blush); border-color: var(--blush); transform: translateY(-2px); }
 
 .portfolio-card-tag {
-  font-size: 0.62rem;
-  letter-spacing: 0.16em;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--rose);
-  font-weight: 500;
-  margin-bottom: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
 }
 
 .portfolio-card-title {
   font-family: 'Fraunces', serif;
-  font-size: 1.15rem;
-  font-weight: 300;
+  font-size: 1.25rem;
+  font-weight: 400;
   line-height: 1.3;
   margin-bottom: 0.6rem;
   color: var(--ink);
 }
 
-.portfolio-card-desc {
-  font-size: 0.8rem;
-  color: var(--ink-mid);
-  line-height: 1.6;
-  font-weight: 300;
+.portfolio-card-desc { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.6; font-weight: 400; flex: 1; }
+
+.card-note {
+  font-size: 0.65rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-top: 0.75rem;
+}
+
+.card-badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  font-weight: 500;
+  margin-bottom: 0.85rem;
 }
 
 .card-arrow {
@@ -419,15 +349,37 @@ nav {
   transition: color 0.2s, transform 0.2s;
 }
 
-.portfolio-card:hover .card-arrow,
-.work-card:hover .card-arrow {
-  color: var(--rose);
-  transform: translate(3px, -3px);
+.portfolio-card:hover .card-arrow { color: var(--rose); transform: translate(3px, -3px); }
+
+/* Section headers */
+.section-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-bar-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.section-bar-line { flex: 1; height: 1px; }
+
+.section-bar-count {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
 }
 
 /* ── PROJECT DETAIL ── */
 .project-wrap {
-  padding: 6rem 5rem;
+  padding: 220px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -451,14 +403,7 @@ nav {
 
 .back-btn:hover { color: var(--rose); }
 
-.proj-tag {
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--rose);
-  font-weight: 500;
-  margin-bottom: 1.25rem;
-}
+.proj-tag { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); font-weight: 500; margin-bottom: 1.25rem; }
 
 .proj-title {
   font-family: 'Fraunces', serif;
@@ -469,14 +414,7 @@ nav {
   color: var(--ink);
 }
 
-.proj-lead {
-  font-size: 1.05rem;
-  color: var(--ink-mid);
-  max-width: 580px;
-  line-height: 1.75;
-  font-weight: 300;
-  margin-bottom: 3rem;
-}
+.proj-lead { font-size: 1.05rem; color: var(--ink-mid); max-width: 580px; line-height: 1.75; font-weight: 300; margin-bottom: 3rem; }
 
 .proj-meta {
   display: flex;
@@ -488,20 +426,8 @@ nav {
   flex-wrap: wrap;
 }
 
-.proj-meta-item label {
-  display: block;
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-bottom: 0.3rem;
-}
-
-.proj-meta-item span {
-  font-size: 0.88rem;
-  color: var(--ink);
-  font-weight: 400;
-}
+.proj-meta-item label { display: block; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.3rem; }
+.proj-meta-item span { font-size: 0.88rem; color: var(--ink); font-weight: 400; }
 
 .proj-img-placeholder {
   width: 100%;
@@ -518,24 +444,13 @@ nav {
   margin-bottom: 3rem;
 }
 
-.proj-body {
-  max-width: 640px;
-}
-
-.proj-body p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--ink-mid);
-  margin-bottom: 1.5rem;
-  font-weight: 300;
-}
+.proj-body { max-width: 640px; }
+.proj-body p { font-size: 1rem; line-height: 1.85; color: var(--ink-mid); margin-bottom: 1.5rem; font-weight: 300; }
+.proj-body a { color: var(--rose); text-decoration: none; }
+.proj-body a:hover { text-decoration: underline; }
 
 /* ── RESUME ── */
-.resume-wrap {
-  padding: 6rem 5rem;
-  max-width: 1080px;
-  margin: 0 auto;
-}
+.resume-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
 
 .resume-top {
   display: flex;
@@ -546,13 +461,7 @@ nav {
   flex-wrap: wrap;
 }
 
-.resume-top h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 200;
-  line-height: 1.0;
-}
-
+.resume-top h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 200; line-height: 1.0; }
 .resume-block { margin-bottom: 4rem; }
 
 .resume-block-label {
@@ -566,100 +475,24 @@ nav {
   margin-bottom: 2rem;
 }
 
-.resume-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: 2rem;
-  row-gap: 0.2rem;
-  margin-bottom: 2.25rem;
-}
+.resume-item { display: grid; grid-template-columns: 1fr auto; column-gap: 2rem; row-gap: 0.2rem; margin-bottom: 2.25rem; }
+.resume-item h4 { font-size: 0.95rem; font-weight: 500; color: var(--ink); }
+.resume-item .org { font-size: 0.85rem; color: var(--ink-mid); font-style: italic; font-weight: 300; }
+.resume-item .date { font-size: 0.75rem; color: var(--ink-soft); white-space: nowrap; text-align: right; grid-row: 1; grid-column: 2; padding-top: 2px; }
+.resume-item ul { grid-column: 1 / -1; margin-top: 0.6rem; padding-left: 1rem; }
+.resume-item ul li { font-size: 0.85rem; color: var(--ink-mid); margin-bottom: 0.3rem; line-height: 1.55; font-weight: 300; }
 
-.resume-item h4 {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.resume-item .org {
-  font-size: 0.85rem;
-  color: var(--ink-mid);
-  font-style: italic;
-  font-weight: 300;
-}
-
-.resume-item .date {
-  font-size: 0.75rem;
-  color: var(--ink-soft);
-  white-space: nowrap;
-  text-align: right;
-  grid-row: 1;
-  grid-column: 2;
-  padding-top: 2px;
-}
-
-.resume-item ul {
-  grid-column: 1 / -1;
-  margin-top: 0.6rem;
-  padding-left: 1rem;
-}
-
-.resume-item ul li {
-  font-size: 0.85rem;
-  color: var(--ink-mid);
-  margin-bottom: 0.3rem;
-  line-height: 1.55;
-  font-weight: 300;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.chip {
-  padding: 0.4rem 1rem;
-  border: 1px solid var(--border);
-  font-size: 0.78rem;
-  color: var(--ink-mid);
-  font-weight: 300;
-  letter-spacing: 0.02em;
-}
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { padding: 0.4rem 1rem; border: 1px solid var(--border); font-size: 0.78rem; color: var(--ink-mid); font-weight: 300; letter-spacing: 0.02em; }
 
 /* ── CONTACT ── */
-.contact-wrap {
-  padding: 6rem 5rem;
-  max-width: 1080px;
-  margin: 0 auto;
-}
+.contact-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
 
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 7rem;
-  align-items: start;
-}
+.contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 7rem; align-items: start; }
 
-.contact-display {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 200;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-}
-
-.contact-display em {
-  font-style: italic;
-  color: var(--rose);
-}
-
-.contact-intro {
-  font-size: 0.95rem;
-  color: var(--ink-mid);
-  line-height: 1.75;
-  font-weight: 300;
-  margin-bottom: 2.5rem;
-}
+.contact-display { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 200; line-height: 1.1; margin-bottom: 1.5rem; }
+.contact-display em { font-style: italic; color: var(--rose); }
+.contact-intro { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.75; font-weight: 300; margin-bottom: 2.5rem; }
 
 .contact-link-row {
   display: flex;
@@ -678,49 +511,22 @@ nav {
 .contact-link-row:hover { color: var(--rose); }
 
 .cl-icon {
-  width: 32px;
-  height: 32px;
+  width: 32px; height: 32px;
   border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; flex-shrink: 0;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
-.contact-link-row:hover .cl-icon {
-  background: var(--rose);
-  border-color: var(--rose);
-  color: white;
-}
+.contact-link-row:hover .cl-icon { background: var(--rose); border-color: var(--rose); color: white; }
+.cl-arrow { margin-left: auto; color: var(--border-strong); transition: color 0.2s, transform 0.2s; }
+.contact-link-row:hover .cl-arrow { color: var(--rose); transform: translate(3px, -3px); }
 
-.cl-arrow {
-  margin-left: auto;
-  color: var(--border-strong);
-  transition: color 0.2s, transform 0.2s;
-}
-
-.contact-link-row:hover .cl-arrow {
-  color: var(--rose);
-  transform: translate(3px, -3px);
-}
-
-/* Form */
 .cform { display: flex; flex-direction: column; gap: 1.25rem; }
-
 .fgroup { display: flex; flex-direction: column; gap: 0.45rem; }
+.fgroup label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); font-weight: 400; }
 
-.fgroup label {
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  font-weight: 400;
-}
-
-.fgroup input,
-.fgroup textarea {
+.fgroup input, .fgroup textarea {
   background: var(--bg2);
   border: 1px solid var(--border);
   padding: 0.8rem 1rem;
@@ -733,11 +539,7 @@ nav {
   resize: none;
 }
 
-.fgroup input:focus,
-.fgroup textarea:focus {
-  border-color: var(--rose);
-  background: white;
-}
+.fgroup input:focus, .fgroup textarea:focus { border-color: var(--rose); background: white; }
 
 .fsubmit {
   padding: 0.8rem 2rem;
@@ -770,32 +572,21 @@ footer {
   letter-spacing: 0.04em;
 }
 
-.footer-name {
-  font-family: 'Fraunces', serif;
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: var(--ink);
-}
+.footer-name { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 300; color: var(--ink); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 840px) {
-  nav { padding: 0.75rem 5rem; }
+  nav { padding: 0 1.5rem; height: 120px; }
   .nav-links { gap: 1.25rem; }
-  .hero, .featured-section, .about-layout, .portfolio-wrap,
-  .project-wrap, .resume-wrap, .contact-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .hero, .featured-section, .about-layout, .portfolio-wrap, .project-wrap, .resume-wrap, .contact-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
   .divider { margin: 0 1.5rem; }
-  .featured-row { grid-template-columns: 1fr; }
-  .about-layout { grid-template-columns: 1fr; gap: 3rem; padding-top: 5rem; }
-  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .featured-row, .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
+  .about-layout { grid-template-columns: 1fr; gap: 3rem; }
   .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
   .resume-item { grid-template-columns: 1fr; }
   .resume-item .date { text-align: left; }
   footer { padding: 1.5rem; }
   .hero-scroll-hint { display: none; }
-}
-
-@media (max-width: 540px) {
-  .portfolio-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -807,19 +598,18 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <img src="LaurenCurryLogo.png" onclick="showPage('home')" style="height:220px; display:block; cursor:pointer;">
+  <img src="LaurenCurryLogo.png" onclick="showPage('home')" style="height:120px; display:block; cursor:pointer;">
   <ul class="nav-links">
-    <li><a onclick="showPage('home')"      data-page="home">Home</a></li>
-    <li><a onclick="showPage('about')"     data-page="about">About</a></li>
+    <li><a onclick="showPage('home')" data-page="home">Home</a></li>
+    <li><a onclick="showPage('about')" data-page="about">About</a></li>
     <li><a onclick="showPage('portfolio')" data-page="portfolio">Work</a></li>
-    <li><a onclick="showPage('resume')"    data-page="resume">Résumé</a></li>
-    <li><a onclick="showPage('contact')"   data-page="contact">Contact</a></li>
+    <li><a onclick="showPage('resume')" data-page="resume">Résumé</a></li>
+    <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- ════════ HOME ════════ -->
 <div id="page-home" class="page active">
-
   <section class="hero">
     <h1 class="hero-name">Lauren<br><em>Curry</em></h1>
     <p class="hero-sub">Communications & Digital Design — writing, designing, and building digital things that connect with people.</p>
@@ -836,33 +626,32 @@ footer {
   <div class="featured-section">
     <span class="section-eyebrow">Selected work</span>
     <div class="featured-row">
-      <div class="work-card" onclick="showProject('ai-ethics')">
-        <div class="work-card-tag">Published · Research & Writing</div>
-        <h2 class="work-card-title">AI Ethics & the Question of Responsibility</h2>
-        <p class="work-card-desc">A published exploration of ethical accountability in artificial intelligence systems — and the humans behind them.</p>
+      <div class="work-card" onclick="showProject('easter-story')">
+        <div class="work-card-tag">Published · Digital Storytelling</div>
+        <h2 class="work-card-title">Jesus's Easter Story: From Darkness to Light</h2>
+        <p class="work-card-desc">An AI-collaborative illustrated children's book and critical reflection essay, published in the University of Guelph's digital humanities journal.</p>
         <span class="work-card-arrow">↗</span>
       </div>
       <div class="work-card" onclick="showProject('smallholder')">
         <div class="work-card-tag">Published · Research & Writing</div>
-        <h2 class="work-card-title">Farming Futures: Smallholder Agriculture</h2>
-        <p class="work-card-desc">Published research on farming practices that support food security and resilience for smallholder farmers in developing economies.</p>
+        <h2 class="work-card-title">Insect Nets to Protect Crops of Smallholder Farmers</h2>
+        <p class="work-card-desc">A published encyclopedia chapter on eco-friendly pest control, written for an international, non-expert audience of smallholder farmers.</p>
         <span class="work-card-arrow">↗</span>
       </div>
-      <div class="work-card" onclick="showProject('pandora')">
-        <div class="work-card-tag">Research & Cultural Analysis</div>
-        <h2 class="work-card-title">Pandora, Avatar & Digital Mythology</h2>
-        <p class="work-card-desc">Capstone analysis at the intersection of digital media, cultural representation, and the myths we embed in technology.</p>
+      <div class="work-card" onclick="showProject('pandora-poster')">
+        <div class="work-card-tag">Visual Design · Print</div>
+        <h2 class="work-card-title">Longing for Pandora — Research Poster</h2>
+        <p class="work-card-desc">A 36×48" printed academic research poster designed for a live capstone presentation at the University of Guelph.</p>
         <span class="work-card-arrow">↗</span>
       </div>
-      <div class="work-card" onclick="showProject('infographic')">
-        <div class="work-card-tag">Visual Design</div>
-        <h2 class="work-card-title">Meatless Diet Infographic</h2>
-        <p class="work-card-desc">Data-driven visual communication piece translating nutritional research into an accessible, well-designed graphic.</p>
+      <div class="work-card" onclick="showProject('pandora-site')">
+        <div class="work-card-tag">Research & Web Development</div>
+        <h2 class="work-card-title">Longing for Pandora — Research Website</h2>
+        <p class="work-card-desc">A multi-chapter academic research site built from scratch in HTML & CSS exploring Avatar fan communities and ecological utopia.</p>
         <span class="work-card-arrow">↗</span>
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- ════════ ABOUT ════════ -->
@@ -873,20 +662,20 @@ footer {
       <h2 class="about-display">Curious<br>by nature,<br>digital<br>by <em>design.</em></h2>
       <div class="skills-stack">
         <div class="skill-row"><span class="skill-name">Canva</span><span class="skill-cat">Design</span></div>
-        <div class="skill-row"><span class="skill-name">Adobe Illustrator</span><span class="skill-cat">Design</span></div>
         <div class="skill-row"><span class="skill-name">Adobe Photoshop</span><span class="skill-cat">Design</span></div>
         <div class="skill-row"><span class="skill-name">Figma</span><span class="skill-cat">Design / UX</span></div>
-        <div class="skill-row"><span class="skill-name">WordPress</span><span class="skill-cat">Web</span></div>
-        <div class="skill-row"><span class="skill-name">HTML & CSS</span><span class="skill-cat">Web</span></div>
-        <div class="skill-row"><span class="skill-name">Squarespace</span><span class="skill-cat">Web</span></div>
+        <div class="skill-row"><span class="skill-name">Visual Studio Code</span><span class="skill-cat">Web</span></div>
+        <div class="skill-row"><span class="skill-name">GitHub</span><span class="skill-cat">Web</span></div>
+        <div class="skill-row"><span class="skill-name">Squarespace / Wix / Wordpress</span><span class="skill-cat">Web</span></div>
         <div class="skill-row"><span class="skill-name">Research & Writing</span><span class="skill-cat">Communications</span></div>
+        <div class="skill-row"><span class="skill-name">Digital Storytelling</span><span class="skill-cat">Communications</span></div>
       </div>
     </div>
     <div class="about-body">
       <p class="lead">I'm a recent University of Guelph graduate with a Bachelor of Arts in Culture and Technology Studies — a program at the intersection of digital methods, critical thinking, and creative practice.</p>
-      <p>I'm drawn to work that lives at the crossroads of communication and design: writing that connects, visuals that clarify, and digital experiences that feel considered. Whether I'm drafting copy, building a layout, or thinking through how a piece of content reaches its audience, I bring the same curiosity and care.</p>
-      <p>My academic background gave me a foundation in understanding how technology shapes culture — and how design and communication shape the way we experience technology in return. I'm now bringing that perspective into professional work, with a focus on communications, digital design, and web content roles.</p>
-      <p>Based in Barrie, Ontario, and open to remote and hybrid opportunities across the Toronto corridor.</p>
+      <p>I’m drawn to work that integrates both communication and design together. I love crafting content that connects, designing visuals that communicate with clarity, and building digital experiences that are purposeful, intuitive, and engaging.</p>
+      <p>My academic background gave me a foundation in understanding how technology shapes culture, and how design and communication shape the way we experience technology in return.  I'm now bringing that perspective into professional work, with a focus on communications, digital design, and web content roles.</p>
+      <p>Based in Barrie, Ontario, and open to remote and hybrid opportunities.</p>
     </div>
   </div>
 </div>
@@ -894,42 +683,86 @@ footer {
 <!-- ════════ PORTFOLIO ════════ -->
 <div id="page-portfolio" class="page">
   <div class="portfolio-wrap pt-nav">
-    <div class="portfolio-header">
-      <h1 class="portfolio-title">Work</h1>
-      <span class="section-eyebrow" style="margin-bottom:0">5 projects</span>
-    </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-card" onclick="showProject('ai-ethics')">
-        <div class="portfolio-card-tag">Published · Research & Writing</div>
-        <h3 class="portfolio-card-title">AI Ethics & the Question of Responsibility</h3>
-        <p class="portfolio-card-desc">Published research on ethical accountability in AI systems.</p>
-        <span class="card-arrow">↗</span>
+    <h1 class="portfolio-title" style="margin-bottom:0.5rem;">Work</h1>
+    <p style="font-size:0.9rem;color:var(--ink-mid);font-weight:300;margin-bottom:4rem;">Published research, visual design, and digital storytelling.</p>
+
+    <!-- Published Work -->
+    <div style="margin-bottom:4rem;">
+      <div class="section-bar">
+        <span class="section-bar-label" style="color:var(--rose);">★ Published work</span>
+        <div class="section-bar-line" style="background:var(--blush);"></div>
+        <span class="section-bar-count">2 pieces</span>
       </div>
-      <div class="portfolio-card" onclick="showProject('smallholder')">
-        <div class="portfolio-card-tag">Published · Research & Writing</div>
-        <h3 class="portfolio-card-title">Farming Futures: Smallholder Agriculture</h3>
-        <p class="portfolio-card-desc">Published work on agricultural practices supporting food security in developing countries.</p>
-        <span class="card-arrow">↗</span>
-      </div>
-      <div class="portfolio-card" onclick="showProject('pandora')">
-        <div class="portfolio-card-tag">Research & Cultural Analysis</div>
-        <h3 class="portfolio-card-title">Pandora, Avatar & Digital Mythology</h3>
-        <p class="portfolio-card-desc">Capstone project exploring digital media, cultural representation, and embedded myth.</p>
-        <span class="card-arrow">↗</span>
-      </div>
-      <div class="portfolio-card" onclick="showProject('infographic')">
-        <div class="portfolio-card-tag">Visual Design</div>
-        <h3 class="portfolio-card-title">Meatless Diet Infographic</h3>
-        <p class="portfolio-card-desc">Visual communication design translating nutritional research into a clear, accessible graphic.</p>
-        <span class="card-arrow">↗</span>
-      </div>
-      <div class="portfolio-card" onclick="showProject('charlotte')">
-        <div class="portfolio-card-tag">Digital Storytelling</div>
-        <h3 class="portfolio-card-title">Charlotte Winder: Digital Story</h3>
-        <p class="portfolio-card-desc">A digital narrative piece bringing personal history to life through digital storytelling methods.</p>
-        <span class="card-arrow">↗</span>
+      <div class="card-grid-2">
+        <div class="portfolio-card" onclick="showProject('easter-story')" style="background:#FDF0F1;border:1px solid #E8C5C8;">
+          <span class="card-badge" style="background:var(--rose);color:white;">Published</span>
+          <div class="portfolio-card-tag">Digital Storytelling</div>
+          <h3 class="portfolio-card-title">Jesus's Easter Story: From Darkness to Light</h3>
+          <p class="portfolio-card-desc">An AI-collaborative illustrated children's book and critical reflection essay, published in CTRL+ALT+DH, the University of Guelph's digital humanities journal.</p>
+          <span class="card-arrow" style="color:var(--rose);">↗</span>
+        </div>
+        <div class="portfolio-card" onclick="showProject('smallholder')" style="background:#FDF0F1;border:1px solid #E8C5C8;">
+          <span class="card-badge" style="background:var(--rose);color:white;">Published</span>
+          <div class="portfolio-card-tag">Research & Writing</div>
+          <h3 class="portfolio-card-title">Insect Nets to Protect Crops of Smallholder Farmers</h3>
+          <p class="portfolio-card-desc">Published encyclopedia chapter on eco-friendly pest control, written for an international, non-expert audience of smallholder farmers.</p>
+          <span class="card-arrow" style="color:var(--rose);">↗</span>
+        </div>
       </div>
     </div>
+
+    <!-- Visual Design -->
+    <div style="margin-bottom:4rem;">
+      <div class="section-bar">
+        <span class="section-bar-label" style="color:var(--ink-mid);">Visual design</span>
+        <div class="section-bar-line" style="background:var(--border);"></div>
+        <span class="section-bar-count">2 pieces</span>
+      </div>
+      <div class="card-grid-3">
+        <div class="portfolio-card" onclick="showProject('pandora-poster')">
+          <span class="card-badge" style="background:var(--blush);color:var(--ink-mid);">Print Design</span>
+          <div class="portfolio-card-tag">Visual Design</div>
+          <h3 class="portfolio-card-title">Longing for Pandora — Research Poster</h3>
+          <p class="portfolio-card-desc">36×48" printed academic research poster designed for a live capstone presentation at the University of Guelph.</p>
+          <p class="card-note">Part of the Longing for Pandora capstone ↓</p>
+          <span class="card-arrow">↗</span>
+        </div>
+        <div class="portfolio-card" onclick="showProject('infographic')">
+          <span class="card-badge" style="background:var(--blush);color:var(--ink-mid);">Infographic</span>
+          <div class="portfolio-card-tag">Visual Design</div>
+          <h3 class="portfolio-card-title">Meatless Diet Infographic</h3>
+          <p class="portfolio-card-desc">Visual communication design translating nutritional research into a clear, accessible graphic for a general audience.</p>
+          <span class="card-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research & Digital Storytelling -->
+    <div style="margin-bottom:4rem;">
+      <div class="section-bar">
+        <span class="section-bar-label" style="color:var(--ink-mid);">Research & digital storytelling</span>
+        <div class="section-bar-line" style="background:var(--border);"></div>
+        <span class="section-bar-count">2 pieces</span>
+      </div>
+      <div class="card-grid-3">
+        <div class="portfolio-card" onclick="showProject('pandora-site')">
+          <span class="card-badge" style="background:var(--blush);color:var(--ink-mid);">Coded Website</span>
+          <div class="portfolio-card-tag">Research & Web Development</div>
+          <h3 class="portfolio-card-title">Longing for Pandora — Research Website</h3>
+          <p class="portfolio-card-desc">A multi-chapter academic research site built from scratch in HTML & CSS presenting original research on Avatar fan communities and ecological utopia.</p>
+          <p class="card-note">Part of the Longing for Pandora capstone ↑</p>
+          <span class="card-arrow">↗</span>
+        </div>
+       <div class="portfolio-card" onclick="showProject('charlotte')">
+          <span class="card-badge" style="background:var(--blush);color:var(--ink-mid);">Scrollytelling</span>
+          <div class="portfolio-card-tag">Digital Storytelling</div>
+          <h3 class="portfolio-card-title">Charlotte Winder: A Compassionate Voice for Rural Animal Welfare</h3>
+          <p class="portfolio-card-desc">A scrollytelling narrative built in Shorthand bringing Charlotte Winder's story to life through immersive digital design.</p>
+          <span class="card-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -945,66 +778,104 @@ footer {
 <div id="page-resume" class="page">
   <div class="resume-wrap pt-nav">
     <div class="resume-top">
-      <h1>Résumé</h1>
+      <div>
+        <h1>Lauren Curry</h1>
+        <p style="font-size:0.85rem;color:var(--ink-mid);font-weight:300;margin-top:0.5rem;">Laurencurry2004@gmail.com &nbsp;·&nbsp; 705-796-7067 &nbsp;·&nbsp; Barrie, ON</p>
+      </div>
       <a class="btn btn-fill" href="#">↓ Download PDF</a>
     </div>
-
+ 
+    <div class="resume-block">
+      <div class="resume-block-label">Highlights of Qualifications</div>
+      <ul style="padding-left:1rem;">
+        <li style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:0.4rem;line-height:1.55;font-weight:300;">Proficient in Microsoft Office Suite, Adobe Creative Suite, Canva, Google Workspaces, WordPress, data analysis, website building and design, and GitHub</li>
+        <li style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:0.4rem;line-height:1.55;font-weight:300;">Website building and design skills using creative talents</li>
+        <li style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:0.4rem;line-height:1.55;font-weight:300;">Strong writing skills with experience collaborating with others</li>
+      </ul>
+    </div>
+ 
+    <div class="resume-block">
+      <div class="resume-block-label">Skills and Experience</div>
+      <ul style="padding-left:1rem;">
+        <li style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:0.4rem;line-height:1.55;font-weight:300;">Organization and time management skills demonstrated by completing assignments and projects on time</li>
+        <li style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:0.4rem;line-height:1.55;font-weight:300;">Ability to interact respectfully with others and resolve conflict using effective listening, assertiveness, and cooperation</li>
+        <li style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:0.4rem;line-height:1.55;font-weight:300;">Voted top submission for Student Led Digital Humanities Journal based on creativity, originality, and navigation through digital spaces</li>
+      </ul>
+    </div>
+ 
+    <div class="resume-block">
+      <div class="resume-block-label">Interpersonal Skills</div>
+      <ul style="padding-left:1rem;">
+        <li style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:0.4rem;line-height:1.55;font-weight:300;">Team sports highlight effective skills in working together with others for common goals while respecting differing points of view</li>
+        <li style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:0.4rem;line-height:1.55;font-weight:300;">Experience in a leadership role as assistant captain of a sports team and project lead for class assignments</li>
+        <li style="font-size:0.85rem;color:var(--ink-mid);margin-bottom:0.4rem;line-height:1.55;font-weight:300;">Effective communication and collaboration skills demonstrated on the Admin/Communication team in a digital publishing course</li>
+      </ul>
+    </div>
+ 
     <div class="resume-block">
       <div class="resume-block-label">Education</div>
       <div class="resume-item">
-        <h4>Bachelor of Arts — Culture and Technology Studies</h4>
-        <div class="date">2022 – 2026</div>
-        <div class="org">University of Guelph</div>
+        <h4>Bachelor of Arts — Culture & Technology Studies</h4>
+        <div class="date">Sept 2022 – Apr 2026</div>
+        <div class="org">University of Guelph &nbsp;·&nbsp; Guelph, ON</div>
         <ul>
-          <li>Major and Minor in Culture and Technology Studies</li>
-          <li>Coursework spanning digital design, web development, cultural analysis, research methods, and digital storytelling</li>
-          <li>Two published works on AI ethics and agricultural development in developing economies</li>
+          <li>Dean's List Honouree – 2022–2026 Academic Year</li>
+          <li>Minor in English</li>
+          <li>Researched and published a bug netting solution for crop improvement in smallholder farming communities in International Agriculture class project</li>
+          <li>Capstone Project "Longing for Pandora" — encompassed skills of creativity and effective communication</li>
+        </ul>
+      </div>
+      <div class="resume-item">
+        <h4>Ontario Secondary School Diploma</h4>
+        <div class="date">Sept 2018 – June 2022</div>
+        <div class="org">Eastview Secondary School &nbsp;·&nbsp; Barrie, ON</div>
+        <ul>
+          <li>Honour Roll Graduate</li>
+          <li>Demonstrated leadership skills by providing grade 9 orientation and year-end celebration with cultural awareness and fundraising focus</li>
+          <li>Photography class expanded skills in camera functions, still photo and video techniques, and various design projects including magazine spreads, posters, and brochures</li>
         </ul>
       </div>
     </div>
-
+ 
     <div class="resume-block">
-      <div class="resume-block-label">Experience</div>
+      <div class="resume-block-label">Work Experience</div>
       <div class="resume-item">
-        <h4>Add your experience here</h4>
-        <div class="date">Date – Date</div>
-        <div class="org">Organization name</div>
+        <h4>Turf Maintenance Worker</h4>
+        <div class="date">May 2024 – Present</div>
+        <div class="org">City of Barrie – Parks and Recreation &nbsp;·&nbsp; Barrie, ON</div>
         <ul>
-          <li>Replace with your actual experience, co-op placements, volunteer roles, or freelance projects</li>
+          <li>Operated commercial ride-on mower to maintain large municipal parks in all climate conditions</li>
+          <li>Used specialized lawn equipment to ensure landscape outcomes met required expectations</li>
+          <li>Performed routine equipment maintenance to ensure optimal functioning and safety</li>
+          <li>Loaded and secured mowers onto trailers, ensuring proper strapping and safe transport between sites</li>
+        </ul>
+      </div>
+      <div class="resume-item">
+        <h4>Crew Member</h4>
+        <div class="date">June 2021 – Aug 2023</div>
+        <div class="org">McDonald's &nbsp;·&nbsp; Barrie, ON</div>
+        <ul>
+          <li>Maintained high standards of customer service during high-volume, fast-paced shifts</li>
+          <li>Delivered prompt, friendly service that created positive guest experiences</li>
+          <li>Communicated pleasantly with customers while taking orders, promoting a positive brand image</li>
+        </ul>
+      </div>
+      <div class="resume-item">
+        <h4>Cashier</h4>
+        <div class="date">June 2020 – June 2021</div>
+        <div class="org">Shoppers Drug Mart &nbsp;·&nbsp; Barrie, ON</div>
+        <ul>
+          <li>Accurately processed cash, credit, debit, cheque, and gift card transactions</li>
+          <li>Consistently balanced the cash register at shift's end, demonstrating strong attention to detail</li>
         </ul>
       </div>
     </div>
-
+ 
     <div class="resume-block">
-      <div class="resume-block-label">Publications</div>
-      <div class="resume-item">
-        <h4>AI Ethics & the Question of Responsibility</h4>
-        <div class="date">2025</div>
-        <div class="org">Add publication name here</div>
-      </div>
-      <div class="resume-item">
-        <h4>Farming Futures: Smallholder Agriculture in Developing Economies</h4>
-        <div class="date">2025</div>
-        <div class="org">Add publication name here</div>
-      </div>
+      <div class="resume-block-label">Activities & Interests</div>
+      <p style="font-size:0.85rem;color:var(--ink-mid);font-weight:300;line-height:1.65;">Hockey, reading, graphic design, and faith-based activities. Strong interest in climate change mitigation and advocating for sustainable practices.</p>
     </div>
-
-    <div class="resume-block">
-      <div class="resume-block-label">Skills</div>
-      <div class="chips">
-        <span class="chip">Canva</span>
-        <span class="chip">Adobe Illustrator</span>
-        <span class="chip">Adobe Photoshop</span>
-        <span class="chip">Figma</span>
-        <span class="chip">WordPress</span>
-        <span class="chip">Squarespace</span>
-        <span class="chip">HTML & CSS</span>
-        <span class="chip">Research & Writing</span>
-        <span class="chip">Digital Storytelling</span>
-        <span class="chip">Content Strategy</span>
-        <span class="chip">Visual Communication</span>
-      </div>
-    </div>
+ 
   </div>
 </div>
 
@@ -1055,40 +926,48 @@ footer {
 
 <script>
 const projects = {
-  'ai-ethics': {
-    tag: 'Published · Research & Writing',
-    title: 'AI Ethics & the Question of Responsibility',
-    desc: 'A published examination of ethical accountability in artificial intelligence — who bears responsibility when systems cause harm, and how do we design for it?',
-    role: 'Author', type: 'Published Research', year: '2025', skills: 'Research, Academic Writing, Critical Analysis',
-    body: `<p>Add your full project description here. Describe what the piece argues, why the question matters, and where it was published.</p><p>You can add a link to the published piece or embed a PDF preview here.</p>`
+  'easter-story': {
+    tag: 'Published · Digital Storytelling',
+    title: "Jesus's Easter Story: From Darkness to Light",
+    desc: 'Published in CTRL+ALT+DH, University of Guelph Digital Humanities Journal (Issue 3)',
+    role: 'Writer & Creative Director', type: 'Published · AI-Collaborative Storytelling', year: '2025', skills: 'AI-collaborative content creation, iterative creative direction, editorial judgment, critical writing',
+    body: `<p>Wrote and art-directed an illustrated children's book retelling the Easter story through iterative collaboration with generative AI.</p><p>Authored an accompanying reflection essay on the creative, technical, and ethical dimensions of AI-assisted storytelling, especially in religious and theological contexts. Published in the university's undergraduate digital humanities journal.</p><p><a href="https://cts-guelph.github.io/ctrl-alt-dh/jesuss-easter-story-from-darkness-to-light.html" target="_blank">Read the full piece →</a></p>`
   },
   'smallholder': {
     tag: 'Published · Research & Writing',
-    title: 'Farming Futures: Smallholder Agriculture in Developing Economies',
-    desc: 'Published research examining agricultural practices that improve food security and economic resilience for smallholder farmers in developing countries.',
-    role: 'Author', type: 'Published Research', year: '2025', skills: 'Research, Academic Writing, Policy Analysis',
-    body: `<p>Add your full project description here. Describe the farming practice you researched, the argument you made, and where it was published.</p><p>Link to the published piece or embed a preview here.</p>`
+    title: 'Insect Nets to Protect Crops of Smallholder Farmers',
+    desc: 'Published on Farmpedia.org',
+    role: 'Author & Researcher', type: 'Published · Encyclopedia Chapter', year: '2022', skills: 'Research synthesis, writing for a non-expert audience, structuring long-form web content, working with visuals',
+    body: `<p>Researched and authored an encyclopedia chapter on eco-friendly pest control for smallholder farmers, which was published on <a href="http://farmpedia.org" target="_blank">Farmpedia.org</a>, created as an open-access agricultural resource for international use.</p><p>Synthesized 18+ academic and field sources into clear, actionable content, including structured sections, an image/figure caption, and a practical "getting started" resource guide. Written with the intended non-expert audience, so that the content is clear and easy to understand.</p><p><a href="https://farmpedia.org/index.php/Chapters_7.20#Lauren_Curry,_University_of_Guelph,_Canada" target="_blank">Read the full chapter →</a></p>`
   },
-  'pandora': {
-    tag: 'Research & Cultural Analysis',
-    title: 'Pandora, Avatar & Digital Mythology',
-    desc: 'A capstone cultural analysis examining how the world of Avatar constructs digital myth, and what that reveals about our relationship to technology, nature, and narrative.',
-    role: 'Researcher & Writer', type: 'Capstone Project', year: '2025', skills: 'Cultural Analysis, Research, Academic Writing',
-    body: `<p>Add your project description here — framed as the cultural argument you were making, not as a course assignment.</p><p>What did you find? What does Avatar reveal about how we imagine technology and ecology?</p>`
+  'pandora-poster': {
+    tag: 'Visual Design · Print',
+    title: 'Longing for Pandora — Research Poster',
+    desc: 'A 36×48" academic research poster designed for a live capstone presentation at the University of Guelph, exploring how Avatar fans use creative practices to build an ecological utopia.',
+    role: 'Designer & Researcher', type: 'Print Design', year: '2026', skills: 'Graphic Design, Typography, Research Communication',
+    image: 'Longing For Pandora (36 x 48 in) (1).png',
+    body: `<p>Designed as one of two deliverables for the Longing for Pandora capstone project, this poster was printed at 36×48" and displayed at a live academic presentation at the University of Guelph.</p><p>The design translates complex academic research into a visually compelling format — balancing scholarly rigour with accessibility. The poster covers three chapters of research: Constructing Utopia, Speaking Into Being, and Feeling Utopia, drawing on fanfiction analysis, Na'vi language communities, and sentiment analysis across TikTok and Reddit.</p><p><a href="https://laurencurry2004.github.io/LongingforPandora.github.io/index.html" target="_blank">View the companion research website →</a></p>`
+  },
+  'pandora-site': {
+    tag: 'Research & Web Development',
+    title: 'Longing for Pandora — Research Website',
+    desc: 'A multi-chapter academic research site built from scratch in HTML & CSS, presenting original research on how Avatar fans use creative practices to construct Pandora as an ecological utopia.',
+    role: 'Researcher & Web Developer', type: 'Coded Website', year: '2026', skills: 'HTML & CSS, Web Design, Academic Research, Digital Humanities',
+    body: `<p>Built entirely from scratch in HTML and CSS, this multi-page research site presents the full findings of the Longing for Pandora capstone — a digital humanities project examining Avatar fan communities through the lenses of fan theories, affect theory, and utopian theory.</p><p>The site organises three chapters of original research spanning fanfiction analysis, Na'vi language community ethnography, and social media sentiment analysis, making academic work publicly accessible through thoughtful web design.</p><p><a href="https://laurencurry2004.github.io/LongingforPandora.github.io/index.html" target="_blank">Visit the live site →</a></p><p><a href="#" onclick="showProject('pandora-poster');return false;">View the companion research poster →</a></p>`
   },
   'infographic': {
     tag: 'Visual Design',
     title: 'Meatless Diet Infographic',
     desc: 'A visual communication piece translating nutritional research on plant-based diets into a clear, accessible graphic designed for a general audience.',
-    role: 'Designer & Researcher', type: 'Visual Design', year: '2024', skills: 'Canva, Visual Communication, Data Design',
-    body: `<p>Add your design description here. What was the brief? What design decisions did you make and why?</p>`
+    role: 'Designer & Researcher', type: 'Visual Design', year: '2022', skills: 'Canva, Visual Communication, Data Design',
+    body: `<p>Applied core visual communication skills through data visualization, information hierarchy, and audience-focused layout, to turn research on meat consumption's environmental impact into a clear, engaging infographic.</p><p>Used pie charts and bar graphs for fast data comprehension, a vertical "story" flow to guide the reader, and a consistent color system with strategic bolding to reinforce key takeaways and visual cohesion.</p>`
   },
   'charlotte': {
-    tag: 'Digital Storytelling',
-    title: 'Charlotte Winder: Digital Story',
-    desc: 'A digital narrative piece bringing a personal or historical story to life through digital storytelling methods and tools.',
-    role: 'Digital Storyteller', type: 'Digital Storytelling', year: '2024', skills: 'Digital Storytelling, Writing, Multimedia',
-    body: `<p>Add your project description here. Who is Charlotte Winder, what story were you telling, and what tools or methods did you use to tell it?</p>`
+    tag: 'Digital Storytelling · Visual Design',
+    title: 'Charlotte Winder: A Compassionate Voice for Rural Animal Welfare',
+    desc: 'A scrollytelling narrative built in Shorthand bringing Charlotte Winder\'s story and advocacy for rural animal welfare to life through immersive digital design.',
+    role: 'Writer & Digital Designer', type: 'Scrollytelling', year: '2024', skills: 'Digital Storytelling, Shorthand, Writing, Visual Design',
+    body: `<p>Built using Shorthand's scrollytelling platform, this piece tells the story of Charlotte Winder — a compassionate advocate for rural animal welfare — through immersive scroll-driven narrative design.</p><p>The project combines writing, visual layout, and digital storytelling techniques to create an experience that draws the reader into the subject rather than presenting information passively.</p><p><a href="https://preview.shorthand.com/vdcD4mqKtOMDjR8k" target="_blank">Read the full story →</a></p>`
   }
 };
 
@@ -1114,7 +993,10 @@ function showProject(id) {
       <div class="proj-meta-item"><label>Year</label><span>${p.year}</span></div>
       <div class="proj-meta-item"><label>Skills</label><span>${p.skills}</span></div>
     </div>
-    <div class="proj-img-placeholder">Add image or preview here</div>
+    ${p.image
+      ? `<img src="${p.image}" style="width:100%;margin-bottom:3rem;border:1px solid var(--border);" alt="${p.title}">`
+      : `<div class="proj-img-placeholder">Add image or preview here</div>`
+    }
     <div class="proj-body">${p.body}</div>
   `;
   document.querySelectorAll('.page').forEach(pg => pg.classList.remove('active'));

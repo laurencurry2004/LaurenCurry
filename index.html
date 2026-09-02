@@ -44,7 +44,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 190px;
+  height: 160px;
   padding: 0 5rem;
   background: rgba(250,247,244,0.94);
   backdrop-filter: blur(12px);
@@ -53,13 +53,23 @@ nav {
   overflow: hidden;
 }
 
-.nav-logo {
-  height: 185px;
-  max-height: 90%;
-  width: auto;
-  display: block;
+.nav-logo-wrap {
+  height: 150px;
+  max-height: 80%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+.nav-logo {
+  height: 100%;
+  width: auto;
+  display: block;
+  transform: scale(1.55);
+  transform-origin: center;
 }
 
 .nav-links {
@@ -116,7 +126,7 @@ nav {
 .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); width: 26px; }
 
 /* ── SHARED LAYOUT ── */
-.pt-nav { padding-top: 250px; }
+.pt-nav { padding-top: 220px; }
 
 .section-eyebrow {
   display: inline-block;
@@ -135,20 +145,23 @@ nav {
   flex-direction: column;
   justify-content: center;
   padding: 0 5rem;
-  padding-top: 250px;
+  padding-top: 220px;
+  padding-bottom: 4rem;
   position: relative;
 }
 
 .hero-flex {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
-  gap: 3rem;
+  justify-content: center;
+  gap: 4.5rem;
+  max-width: 1150px;
+  margin: 0 auto;
 }
 
 .hero-photo {
-  width: 340px;
-  height: 340px;
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 25%;
@@ -255,7 +268,7 @@ nav {
   aspect-ratio: 16/10;
   object-fit: cover;
   display: block;
-  border: 1px solid var(--border);
+  border: 2px solid var(--border-strong);
 }
 
 .portfolio-card-img { width: calc(100% + 3.5rem); margin: -1.75rem -1.75rem 1.25rem; }
@@ -300,7 +313,7 @@ nav {
   grid-template-columns: 1fr 1.5fr;
   gap: 6rem;
   align-items: start;
-  padding: 250px 5rem 6rem; 
+  padding: 220px 5rem 6rem; 
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -343,7 +356,7 @@ nav {
 
 /* ── PORTFOLIO ── */
 .portfolio-wrap {
-  padding: 250px 5rem 6rem;
+  padding: 220px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -449,7 +462,7 @@ nav {
 
 /* ── PROJECT DETAIL ── */
 .project-wrap {
-  padding: 250px 5rem 6rem;
+  padding: 220px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -520,7 +533,7 @@ nav {
 .proj-body a:hover { text-decoration: underline; }
 
 /* ── RESUME ── */
-.resume-wrap { padding: 250px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
+.resume-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
 
 .resume-top {
   display: flex;
@@ -556,7 +569,7 @@ nav {
 .chip { padding: 0.4rem 1rem; border: 1px solid var(--border); font-size: 0.78rem; color: var(--ink-mid); font-weight: 300; letter-spacing: 0.02em; }
 
 /* ── CONTACT ── */
-.contact-wrap { padding: 250px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
+.contact-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
 
 .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 7rem; align-items: start; }
 
@@ -646,14 +659,14 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 840px) {
-  nav { padding: 0 1.5rem; height: 115px; }
-  .nav-logo { height: 92px; }
+  nav { padding: 0 1.5rem; height: 100px; }
+  .nav-logo-wrap { height: 78px; }
 
   .hamburger { display: flex; }
 
   .nav-links {
     position: fixed;
-    top: 115px;
+    top: 100px;
     left: 0; right: 0;
     flex-direction: column;
     gap: 0;
@@ -685,10 +698,10 @@ footer {
   footer { padding: 1.5rem; }
   .hero-scroll-hint { display: none; }
 
-  .hero-flex { flex-direction: column-reverse; gap: 2rem; }
-  .hero-photo { width: 190px; height: 190px; }
+  .hero-flex { flex-direction: column-reverse; gap: 2rem; align-items: center; }
+  .hero-photo { width: 210px; height: 210px; }
 
-  .pt-nav, .hero, .about-layout, .portfolio-wrap, .project-wrap, .resume-wrap, .contact-wrap { padding-top: 165px; }
+  .pt-nav, .hero, .about-layout, .portfolio-wrap, .project-wrap, .resume-wrap, .contact-wrap { padding-top: 150px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -700,7 +713,9 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <img src="LaurenCurryLogo.png" onclick="showPage('home')" class="nav-logo">
+  <div class="nav-logo-wrap" onclick="showPage('home')">
+    <img src="LaurenCurryLogo.png" class="nav-logo">
+  </div>
   <ul class="nav-links" id="nav-links">
     <li><a onclick="navGo('home')" data-page="home">Home</a></li>
     <li><a onclick="navGo('about')" data-page="about">About</a></li>

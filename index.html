@@ -44,7 +44,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 160px;
+  height: 190px;
   padding: 0 5rem;
   background: rgba(250,247,244,0.94);
   backdrop-filter: blur(12px);
@@ -54,8 +54,8 @@ nav {
 }
 
 .nav-logo {
-  height: 150px;
-  max-height: 80%;
+  height: 185px;
+  max-height: 90%;
   width: auto;
   display: block;
   cursor: pointer;
@@ -116,7 +116,7 @@ nav {
 .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); width: 26px; }
 
 /* ── SHARED LAYOUT ── */
-.pt-nav { padding-top: 220px; }
+.pt-nav { padding-top: 250px; }
 
 .section-eyebrow {
   display: inline-block;
@@ -135,22 +135,23 @@ nav {
   flex-direction: column;
   justify-content: center;
   padding: 0 5rem;
-  padding-top: 220px;
+  padding-top: 250px;
   position: relative;
 }
 
 .hero-flex {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 3rem;
 }
 
 .hero-photo {
-  width: 260px;
-  height: 260px;
+  width: 340px;
+  height: 340px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 25%;
   flex-shrink: 0;
   border: 1px solid var(--border-strong);
   background: var(--bg2);
@@ -254,6 +255,7 @@ nav {
   aspect-ratio: 16/10;
   object-fit: cover;
   display: block;
+  border: 1px solid var(--border);
 }
 
 .portfolio-card-img { width: calc(100% + 3.5rem); margin: -1.75rem -1.75rem 1.25rem; }
@@ -298,7 +300,7 @@ nav {
   grid-template-columns: 1fr 1.5fr;
   gap: 6rem;
   align-items: start;
-  padding: 220px 5rem 6rem; 
+  padding: 250px 5rem 6rem; 
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -341,7 +343,7 @@ nav {
 
 /* ── PORTFOLIO ── */
 .portfolio-wrap {
-  padding: 220px 5rem 6rem;
+  padding: 250px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -366,6 +368,7 @@ nav {
   position: relative;
   display: flex;
   flex-direction: column;
+  min-height: 460px;
 }
 
 .portfolio-card:hover { background: var(--blush); border-color: var(--blush); transform: translateY(-2px); }
@@ -446,7 +449,7 @@ nav {
 
 /* ── PROJECT DETAIL ── */
 .project-wrap {
-  padding: 220px 5rem 6rem;
+  padding: 250px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -517,7 +520,7 @@ nav {
 .proj-body a:hover { text-decoration: underline; }
 
 /* ── RESUME ── */
-.resume-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
+.resume-wrap { padding: 250px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
 
 .resume-top {
   display: flex;
@@ -553,7 +556,7 @@ nav {
 .chip { padding: 0.4rem 1rem; border: 1px solid var(--border); font-size: 0.78rem; color: var(--ink-mid); font-weight: 300; letter-spacing: 0.02em; }
 
 /* ── CONTACT ── */
-.contact-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
+.contact-wrap { padding: 250px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
 
 .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 7rem; align-items: start; }
 
@@ -643,14 +646,14 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 840px) {
-  nav { padding: 0 1.5rem; height: 100px; }
-  .nav-logo { height: 78px; }
+  nav { padding: 0 1.5rem; height: 115px; }
+  .nav-logo { height: 92px; }
 
   .hamburger { display: flex; }
 
   .nav-links {
     position: fixed;
-    top: 100px;
+    top: 115px;
     left: 0; right: 0;
     flex-direction: column;
     gap: 0;
@@ -683,9 +686,9 @@ footer {
   .hero-scroll-hint { display: none; }
 
   .hero-flex { flex-direction: column-reverse; gap: 2rem; }
-  .hero-photo { width: 150px; height: 150px; }
+  .hero-photo { width: 190px; height: 190px; }
 
-  .pt-nav, .hero, .about-layout, .portfolio-wrap, .project-wrap, .resume-wrap, .contact-wrap { padding-top: 150px; }
+  .pt-nav, .hero, .about-layout, .portfolio-wrap, .project-wrap, .resume-wrap, .contact-wrap { padding-top: 165px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1143,7 +1146,7 @@ function showProject(id) {
       <div class="proj-meta-item"><label>Skills</label><span>${p.skills}</span></div>
     </div>
     ${p.image
-      ? `<figure style="margin-bottom:3rem;">
+      ? `<figure style="margin-bottom:3rem;max-width:85%;">
            <img src="${p.image}" style="width:100%;display:block;border:1px solid var(--border);" alt="${p.imageAlt || p.title}">
            ${p.credit ? `<figcaption style="font-size:0.72rem;color:var(--ink-soft);font-style:italic;margin-top:0.6rem;">${p.credit}</figcaption>` : ''}
          </figure>`

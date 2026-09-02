@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,200;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 :root {
   --bg:        #FAF7F4;
   --bg2:       #F3EDE7;
@@ -21,9 +21,9 @@
   --border:    #E7E0D9;
   --border-strong: #C9BFB8;
 }
-
+ 
 html { scroll-behavior: smooth; }
-
+ 
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--bg);
@@ -32,10 +32,10 @@ body {
   line-height: 1.65;
   min-height: 100vh;
 }
-
+ 
 .page { display: none; }
 .page.active { display: block; }
-
+ 
 /* ── NAV ── */
 nav {
   position: fixed;
@@ -44,7 +44,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 140px;
+  height: 160px;
   padding: 0 5rem;
   background: rgba(250,247,244,0.94);
   backdrop-filter: blur(12px);
@@ -52,13 +52,22 @@ nav {
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
-
+ 
+.nav-logo {
+  height: 150px;
+  max-height: 80%;
+  width: auto;
+  display: block;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+ 
 .nav-links {
   display: flex;
   gap: 2.75rem;
   list-style: none;
 }
-
+ 
 .nav-links a {
   font-size: 0.78rem;
   font-weight: 400;
@@ -71,13 +80,44 @@ nav {
   border-bottom: 1px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
-
+ 
 .nav-links a:hover { color: var(--ink); }
 .nav-links a.active { color: var(--ink); border-bottom-color: var(--rose); }
-
+ 
+/* ── HAMBURGER (mobile only) ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 110;
+}
+ 
+.hamburger span {
+  display: block;
+  height: 1.5px;
+  background: var(--ink);
+  border-radius: 1px;
+  transition: transform 0.25s, opacity 0.25s, width 0.25s;
+  width: 26px;
+}
+ 
+.hamburger span:nth-child(2) { width: 18px; }
+ 
+.hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); width: 26px; }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); width: 26px; }
+ 
 /* ── SHARED LAYOUT ── */
 .pt-nav { padding-top: 220px; }
-
+ 
 .section-eyebrow {
   display: inline-block;
   font-size: 0.68rem;
@@ -87,7 +127,7 @@ nav {
   font-weight: 500;
   margin-bottom: 2.5rem;
 }
-
+ 
 /* ── HOME / HERO ── */
 .hero {
   min-height: 100vh;
@@ -98,7 +138,24 @@ nav {
   padding-top: 220px;
   position: relative;
 }
-
+ 
+.hero-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+ 
+.hero-photo {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border-strong);
+  background: var(--bg2);
+}
+ 
 .hero-name {
   font-family: 'Fraunces', serif;
   font-size: clamp(4.5rem, 11vw, 10rem);
@@ -108,9 +165,9 @@ nav {
   color: var(--ink);
   margin-bottom: 2rem;
 }
-
+ 
 .hero-name em { font-style: italic; color: var(--rose); }
-
+ 
 .hero-sub {
   font-family: 'DM Sans', sans-serif;
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
@@ -121,9 +178,9 @@ nav {
   max-width: 420px;
   line-height: 1.7;
 }
-
+ 
 .hero-actions { display: flex; gap: 0.875rem; flex-wrap: wrap; }
-
+ 
 .btn {
   display: inline-block;
   padding: 0.7rem 1.6rem;
@@ -139,11 +196,11 @@ nav {
   transition: all 0.2s;
   text-decoration: none;
 }
-
+ 
 .btn:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 .btn-fill { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 .btn-fill:hover { background: var(--rose); border-color: var(--rose); color: white; }
-
+ 
 .hero-scroll-hint {
   position: absolute;
   bottom: 2.5rem;
@@ -157,7 +214,7 @@ nav {
   align-items: center;
   gap: 0.75rem;
 }
-
+ 
 .hero-scroll-hint::after {
   content: '';
   display: block;
@@ -165,21 +222,21 @@ nav {
   height: 48px;
   background: var(--border-strong);
 }
-
+ 
 /* ── FEATURED WORK ── */
 .featured-section {
   padding: 6rem 5rem;
   max-width: 1080px;
   margin: 0 auto;
 }
-
+ 
 .featured-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   margin-top: 0.5rem;
 }
-
+ 
 .work-card {
   background: var(--bg2);
   padding: 2.25rem 2.25rem 3rem;
@@ -188,9 +245,19 @@ nav {
   position: relative;
   border: 1px solid transparent;
 }
-
+ 
 .work-card:hover { background: var(--blush); border-color: var(--blush); transform: translateY(-2px); }
-
+ 
+.work-card-img, .portfolio-card-img {
+  width: calc(100% + 4.5rem);
+  margin: -2.25rem -2.25rem 1.5rem;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+}
+ 
+.portfolio-card-img { width: calc(100% + 3.5rem); margin: -1.75rem -1.75rem 1.25rem; }
+ 
 .work-card-tag {
   font-size: 0.65rem;
   letter-spacing: 0.16em;
@@ -199,7 +266,7 @@ nav {
   font-weight: 500;
   margin-bottom: 1.1rem;
 }
-
+ 
 .work-card-title {
   font-family: 'Fraunces', serif;
   font-size: 1.45rem;
@@ -208,9 +275,9 @@ nav {
   margin-bottom: 0.85rem;
   color: var(--ink);
 }
-
+ 
 .work-card-desc { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.65; font-weight: 300; }
-
+ 
 .work-card-arrow {
   position: absolute;
   bottom: 1.75rem;
@@ -219,12 +286,12 @@ nav {
   color: var(--border-strong);
   transition: color 0.2s, transform 0.2s;
 }
-
+ 
 .work-card:hover .work-card-arrow { color: var(--rose); transform: translate(3px, -3px); }
-
+ 
 /* ── DIVIDER ── */
 .divider { border: none; border-top: 1px solid var(--border); margin: 0 5rem; }
-
+ 
 /* ── ABOUT ── */
 .about-layout {
   display: grid;
@@ -235,7 +302,7 @@ nav {
   max-width: 1080px;
   margin: 0 auto;
 }
-
+ 
 .about-display {
   font-family: 'Fraunces', serif;
   font-size: clamp(2.8rem, 5vw, 4.2rem);
@@ -244,10 +311,10 @@ nav {
   color: var(--ink);
   margin-bottom: 3rem;
 }
-
+ 
 .about-display em { font-style: italic; color: var(--rose); }
 .skills-stack { margin-top: 0.5rem; }
-
+ 
 .skill-row {
   display: flex;
   justify-content: space-between;
@@ -256,13 +323,13 @@ nav {
   border-bottom: 1px solid var(--border);
   font-size: 0.85rem;
 }
-
+ 
 .skill-row:first-child { border-top: 1px solid var(--border); }
 .skill-name { color: var(--ink); font-weight: 400; }
 .skill-cat { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
-
+ 
 .about-body p { font-size: 1rem; line-height: 1.85; color: var(--ink-mid); margin-bottom: 1.5rem; font-weight: 300; }
-
+ 
 .about-body p.lead {
   font-family: 'Fraunces', serif;
   font-size: 1.35rem;
@@ -271,25 +338,25 @@ nav {
   color: var(--ink);
   margin-bottom: 2rem;
 }
-
+ 
 /* ── PORTFOLIO ── */
 .portfolio-wrap {
   padding: 220px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
 }
-
+ 
 .portfolio-title {
   font-family: 'Fraunces', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 200;
   line-height: 1.05;
 }
-
+ 
 /* Equal height cards */
 .card-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 .card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
-
+ 
 .portfolio-card {
   background: var(--bg2);
   padding: 1.75rem 1.75rem 3rem;
@@ -300,9 +367,9 @@ nav {
   display: flex;
   flex-direction: column;
 }
-
+ 
 .portfolio-card:hover { background: var(--blush); border-color: var(--blush); transform: translateY(-2px); }
-
+ 
 .portfolio-card-tag {
   font-size: 0.68rem;
   letter-spacing: 0.14em;
@@ -311,7 +378,7 @@ nav {
   font-weight: 600;
   margin-bottom: 0.6rem;
 }
-
+ 
 .portfolio-card-title {
   font-family: 'Fraunces', serif;
   font-size: 1.25rem;
@@ -320,16 +387,16 @@ nav {
   margin-bottom: 0.6rem;
   color: var(--ink);
 }
-
+ 
 .portfolio-card-desc { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.6; font-weight: 400; flex: 1; }
-
+ 
 .card-note {
   font-size: 0.65rem;
   color: var(--ink-soft);
   font-style: italic;
   margin-top: 0.75rem;
 }
-
+ 
 .card-badge {
   display: inline-block;
   font-size: 0.58rem;
@@ -339,7 +406,7 @@ nav {
   font-weight: 500;
   margin-bottom: 0.85rem;
 }
-
+ 
 .card-arrow {
   position: absolute;
   bottom: 1.25rem;
@@ -348,9 +415,9 @@ nav {
   color: var(--border-strong);
   transition: color 0.2s, transform 0.2s;
 }
-
+ 
 .portfolio-card:hover .card-arrow { color: var(--rose); transform: translate(3px, -3px); }
-
+ 
 /* Section headers */
 .section-bar {
   display: flex;
@@ -358,7 +425,7 @@ nav {
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
-
+ 
 .section-bar-label {
   font-size: 0.65rem;
   letter-spacing: 0.18em;
@@ -366,9 +433,9 @@ nav {
   font-weight: 600;
   white-space: nowrap;
 }
-
+ 
 .section-bar-line { flex: 1; height: 1px; }
-
+ 
 .section-bar-count {
   font-size: 0.65rem;
   letter-spacing: 0.12em;
@@ -376,14 +443,14 @@ nav {
   color: var(--ink-soft);
   white-space: nowrap;
 }
-
+ 
 /* ── PROJECT DETAIL ── */
 .project-wrap {
   padding: 220px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
 }
-
+ 
 .back-btn {
   display: inline-flex;
   align-items: center;
@@ -400,11 +467,11 @@ nav {
   transition: color 0.2s;
   padding: 0;
 }
-
+ 
 .back-btn:hover { color: var(--rose); }
-
+ 
 .proj-tag { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); font-weight: 500; margin-bottom: 1.25rem; }
-
+ 
 .proj-title {
   font-family: 'Fraunces', serif;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -413,9 +480,9 @@ nav {
   margin-bottom: 1.5rem;
   color: var(--ink);
 }
-
+ 
 .proj-lead { font-size: 1.05rem; color: var(--ink-mid); max-width: 580px; line-height: 1.75; font-weight: 300; margin-bottom: 3rem; }
-
+ 
 .proj-meta {
   display: flex;
   gap: 3rem;
@@ -425,10 +492,10 @@ nav {
   margin-bottom: 3.5rem;
   flex-wrap: wrap;
 }
-
+ 
 .proj-meta-item label { display: block; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.3rem; }
 .proj-meta-item span { font-size: 0.88rem; color: var(--ink); font-weight: 400; }
-
+ 
 .proj-img-placeholder {
   width: 100%;
   aspect-ratio: 16/9;
@@ -443,15 +510,15 @@ nav {
   text-transform: uppercase;
   margin-bottom: 3rem;
 }
-
+ 
 .proj-body { max-width: 640px; }
 .proj-body p { font-size: 1rem; line-height: 1.85; color: var(--ink-mid); margin-bottom: 1.5rem; font-weight: 300; }
 .proj-body a { color: var(--rose); text-decoration: none; }
 .proj-body a:hover { text-decoration: underline; }
-
+ 
 /* ── RESUME ── */
 .resume-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
-
+ 
 .resume-top {
   display: flex;
   align-items: flex-start;
@@ -460,10 +527,10 @@ nav {
   gap: 1.5rem;
   flex-wrap: wrap;
 }
-
+ 
 .resume-top h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 200; line-height: 1.0; }
 .resume-block { margin-bottom: 4rem; }
-
+ 
 .resume-block-label {
   font-size: 0.65rem;
   letter-spacing: 0.2em;
@@ -474,26 +541,26 @@ nav {
   border-bottom: 1px solid var(--border);
   margin-bottom: 2rem;
 }
-
+ 
 .resume-item { display: grid; grid-template-columns: 1fr auto; column-gap: 2rem; row-gap: 0.2rem; margin-bottom: 2.25rem; }
 .resume-item h4 { font-size: 0.95rem; font-weight: 500; color: var(--ink); }
 .resume-item .org { font-size: 0.85rem; color: var(--ink-mid); font-style: italic; font-weight: 300; }
 .resume-item .date { font-size: 0.75rem; color: var(--ink-soft); white-space: nowrap; text-align: right; grid-row: 1; grid-column: 2; padding-top: 2px; }
 .resume-item ul { grid-column: 1 / -1; margin-top: 0.6rem; padding-left: 1rem; }
 .resume-item ul li { font-size: 0.85rem; color: var(--ink-mid); margin-bottom: 0.3rem; line-height: 1.55; font-weight: 300; }
-
+ 
 .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chip { padding: 0.4rem 1rem; border: 1px solid var(--border); font-size: 0.78rem; color: var(--ink-mid); font-weight: 300; letter-spacing: 0.02em; }
-
+ 
 /* ── CONTACT ── */
 .contact-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
-
+ 
 .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 7rem; align-items: start; }
-
+ 
 .contact-display { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 200; line-height: 1.1; margin-bottom: 1.5rem; }
 .contact-display em { font-style: italic; color: var(--rose); }
 .contact-intro { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.75; font-weight: 300; margin-bottom: 2.5rem; }
-
+ 
 .contact-link-row {
   display: flex;
   align-items: center;
@@ -506,10 +573,10 @@ nav {
   transition: color 0.2s;
   cursor: pointer;
 }
-
+ 
 .contact-link-row:first-of-type { border-top: 1px solid var(--border); }
 .contact-link-row:hover { color: var(--rose); }
-
+ 
 .cl-icon {
   width: 32px; height: 32px;
   border: 1px solid var(--border);
@@ -517,15 +584,15 @@ nav {
   font-size: 0.85rem; flex-shrink: 0;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
-
+ 
 .contact-link-row:hover .cl-icon { background: var(--rose); border-color: var(--rose); color: white; }
 .cl-arrow { margin-left: auto; color: var(--border-strong); transition: color 0.2s, transform 0.2s; }
 .contact-link-row:hover .cl-arrow { color: var(--rose); transform: translate(3px, -3px); }
-
+ 
 .cform { display: flex; flex-direction: column; gap: 1.25rem; }
 .fgroup { display: flex; flex-direction: column; gap: 0.45rem; }
 .fgroup label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); font-weight: 400; }
-
+ 
 .fgroup input, .fgroup textarea {
   background: var(--bg2);
   border: 1px solid var(--border);
@@ -538,9 +605,9 @@ nav {
   outline: none;
   resize: none;
 }
-
+ 
 .fgroup input:focus, .fgroup textarea:focus { border-color: var(--rose); background: white; }
-
+ 
 .fsubmit {
   padding: 0.8rem 2rem;
   background: var(--ink);
@@ -555,9 +622,9 @@ nav {
   transition: background 0.2s;
   align-self: flex-start;
 }
-
+ 
 .fsubmit:hover { background: var(--rose); }
-
+ 
 /* ── FOOTER ── */
 footer {
   border-top: 1px solid var(--border);
@@ -571,13 +638,40 @@ footer {
   gap: 0.75rem;
   letter-spacing: 0.04em;
 }
-
+ 
 .footer-name { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 300; color: var(--ink); }
-
+ 
 /* ── RESPONSIVE ── */
 @media (max-width: 840px) {
-  nav { padding: 0 1.5rem; height: 120px; }
-  .nav-links { gap: 1.25rem; }
+  nav { padding: 0 1.5rem; height: 100px; }
+  .nav-logo { height: 78px; }
+ 
+  .hamburger { display: flex; }
+ 
+  .nav-links {
+    position: fixed;
+    top: 100px;
+    left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+ 
+  .nav-links.open { max-height: 400px; }
+ 
+  .nav-links a {
+    padding: 1.1rem 1.5rem;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    border-left: none;
+  }
+ 
+  .nav-links a.active { border-bottom-color: var(--border); color: var(--rose); }
+ 
   .hero, .featured-section, .about-layout, .portfolio-wrap, .project-wrap, .resume-wrap, .contact-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
   .divider { margin: 0 1.5rem; }
   .featured-row, .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
@@ -587,64 +681,81 @@ footer {
   .resume-item .date { text-align: left; }
   footer { padding: 1.5rem; }
   .hero-scroll-hint { display: none; }
+ 
+  .hero-flex { flex-direction: column-reverse; gap: 2rem; }
+  .hero-photo { width: 150px; height: 150px; }
+ 
+  .pt-nav, .hero, .about-layout, .portfolio-wrap, .project-wrap, .resume-wrap, .contact-wrap { padding-top: 150px; }
 }
-
+ 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
-  <img src="LaurenCurryLogo.png" onclick="showPage('home')" style="height:120px; display:block; cursor:pointer;">
-  <ul class="nav-links">
-    <li><a onclick="showPage('home')" data-page="home">Home</a></li>
-    <li><a onclick="showPage('about')" data-page="about">About</a></li>
-    <li><a onclick="showPage('portfolio')" data-page="portfolio">Work</a></li>
-    <li><a onclick="showPage('resume')" data-page="resume">Résumé</a></li>
-    <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
+  <img src="LaurenCurryLogo.png" onclick="showPage('home')" class="nav-logo">
+  <ul class="nav-links" id="nav-links">
+    <li><a onclick="navGo('home')" data-page="home">Home</a></li>
+    <li><a onclick="navGo('about')" data-page="about">About</a></li>
+    <li><a onclick="navGo('portfolio')" data-page="portfolio">Work</a></li>
+    <li><a onclick="navGo('resume')" data-page="resume">Résumé</a></li>
+    <li><a onclick="navGo('contact')" data-page="contact">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-
+ 
 <!-- ════════ HOME ════════ -->
 <div id="page-home" class="page active">
   <section class="hero">
-    <h1 class="hero-name">Lauren<br><em>Curry</em></h1>
-    <p class="hero-sub">Communications & Digital Design — writing, designing, and building digital things that connect with people.</p>
-    <div class="hero-actions">
-      <button class="btn btn-fill" onclick="showPage('portfolio')">View my work</button>
-      <button class="btn" onclick="showPage('about')">About me</button>
-      <button class="btn" onclick="showPage('contact')">Get in touch</button>
+    <div class="hero-flex">
+      <div>
+        <h1 class="hero-name">Lauren<br><em>Curry</em></h1>
+        <p class="hero-sub">Communications & Digital Design — writing, designing, and building digital things that connect with people.</p>
+        <div class="hero-actions">
+          <button class="btn btn-fill" onclick="showPage('portfolio')">View my work</button>
+          <button class="btn" onclick="showPage('about')">About me</button>
+          <button class="btn" onclick="showPage('contact')">Get in touch</button>
+        </div>
+      </div>
+      <img src="profile-photo.jpg" alt="Lauren Curry" class="hero-photo">
     </div>
     <div class="hero-scroll-hint">Scroll</div>
   </section>
-
+ 
   <hr class="divider">
-
+ 
   <div class="featured-section">
     <span class="section-eyebrow">Selected work</span>
     <div class="featured-row">
       <div class="work-card" onclick="showProject('easter-story')">
+        <img src="images/easter-story.jpg" class="work-card-img" alt="Illustrated cover of Jesus's Easter Story: From Darkness to Light">
         <div class="work-card-tag">Published · Digital Storytelling</div>
         <h2 class="work-card-title">Jesus's Easter Story: From Darkness to Light</h2>
         <p class="work-card-desc">An AI-collaborative illustrated children's book and critical reflection essay, published in the University of Guelph's digital humanities journal.</p>
         <span class="work-card-arrow">↗</span>
       </div>
       <div class="work-card" onclick="showProject('smallholder')">
+        <img src="images/smallholder.png" class="work-card-img" alt="Farmpedia.org page for the Insect Nets to Protect Crops of Smallholder Farmers chapter">
         <div class="work-card-tag">Published · Research & Writing</div>
         <h2 class="work-card-title">Insect Nets to Protect Crops of Smallholder Farmers</h2>
         <p class="work-card-desc">A published encyclopedia chapter on eco-friendly pest control, written for an international, non-expert audience of smallholder farmers.</p>
         <span class="work-card-arrow">↗</span>
       </div>
       <div class="work-card" onclick="showProject('pandora-poster')">
+        <img src="Longing For Pandora (36 x 48 in) (1).png" class="work-card-img" alt="Longing for Pandora 36 by 48 inch research poster">
         <div class="work-card-tag">Visual Design · Print</div>
         <h2 class="work-card-title">Longing for Pandora — Research Poster</h2>
         <p class="work-card-desc">A 36×48" printed academic research poster designed for a live capstone presentation at the University of Guelph.</p>
         <span class="work-card-arrow">↗</span>
       </div>
       <div class="work-card" onclick="showProject('pandora-site')">
+        <img src="images/pandora-site.jpg" class="work-card-img" alt="Homepage of the Longing for Pandora research website">
         <div class="work-card-tag">Research & Web Development</div>
         <h2 class="work-card-title">Longing for Pandora — Research Website</h2>
         <p class="work-card-desc">A multi-chapter academic research site built from scratch in HTML & CSS exploring Avatar fan communities and ecological utopia.</p>
@@ -653,7 +764,7 @@ footer {
     </div>
   </div>
 </div>
-
+ 
 <!-- ════════ ABOUT ════════ -->
 <div id="page-about" class="page">
   <div class="about-layout pt-nav">
@@ -679,13 +790,13 @@ footer {
     </div>
   </div>
 </div>
-
+ 
 <!-- ════════ PORTFOLIO ════════ -->
 <div id="page-portfolio" class="page">
   <div class="portfolio-wrap pt-nav">
     <h1 class="portfolio-title" style="margin-bottom:0.5rem;">Work</h1>
     <p style="font-size:0.9rem;color:var(--ink-mid);font-weight:300;margin-bottom:4rem;">Published research, visual design, and digital storytelling.</p>
-
+ 
     <!-- Published Work -->
     <div style="margin-bottom:4rem;">
       <div class="section-bar">
@@ -695,6 +806,7 @@ footer {
       </div>
       <div class="card-grid-2">
         <div class="portfolio-card" onclick="showProject('easter-story')" style="background:#FDF0F1;border:1px solid #E8C5C8;">
+          <img src="images/easter-story.jpg" class="portfolio-card-img" alt="Illustrated cover of Jesus's Easter Story: From Darkness to Light">
           <span class="card-badge" style="background:var(--rose);color:white;">Published</span>
           <div class="portfolio-card-tag">Digital Storytelling</div>
           <h3 class="portfolio-card-title">Jesus's Easter Story: From Darkness to Light</h3>
@@ -702,6 +814,7 @@ footer {
           <span class="card-arrow" style="color:var(--rose);">↗</span>
         </div>
         <div class="portfolio-card" onclick="showProject('smallholder')" style="background:#FDF0F1;border:1px solid #E8C5C8;">
+          <img src="images/smallholder.png" class="portfolio-card-img" alt="Farmpedia.org page for the Insect Nets to Protect Crops of Smallholder Farmers chapter">
           <span class="card-badge" style="background:var(--rose);color:white;">Published</span>
           <div class="portfolio-card-tag">Research & Writing</div>
           <h3 class="portfolio-card-title">Insect Nets to Protect Crops of Smallholder Farmers</h3>
@@ -710,7 +823,7 @@ footer {
         </div>
       </div>
     </div>
-
+ 
     <!-- Visual Design -->
     <div style="margin-bottom:4rem;">
       <div class="section-bar">
@@ -720,6 +833,7 @@ footer {
       </div>
       <div class="card-grid-3">
         <div class="portfolio-card" onclick="showProject('pandora-poster')">
+          <img src="Longing For Pandora (36 x 48 in) (1).png" class="portfolio-card-img" alt="Longing for Pandora 36 by 48 inch research poster">
           <span class="card-badge" style="background:var(--blush);color:var(--ink-mid);">Print Design</span>
           <div class="portfolio-card-tag">Visual Design</div>
           <h3 class="portfolio-card-title">Longing for Pandora — Research Poster</h3>
@@ -728,6 +842,7 @@ footer {
           <span class="card-arrow">↗</span>
         </div>
         <div class="portfolio-card" onclick="showProject('infographic')">
+          <img src="images/infographic.jpg" class="portfolio-card-img" alt="Why You Should Go Meatless Today infographic">
           <span class="card-badge" style="background:var(--blush);color:var(--ink-mid);">Infographic</span>
           <div class="portfolio-card-tag">Visual Design</div>
           <h3 class="portfolio-card-title">Meatless Diet Infographic</h3>
@@ -736,7 +851,7 @@ footer {
         </div>
       </div>
     </div>
-
+ 
     <!-- Research & Digital Storytelling -->
     <div style="margin-bottom:4rem;">
       <div class="section-bar">
@@ -746,6 +861,7 @@ footer {
       </div>
       <div class="card-grid-3">
         <div class="portfolio-card" onclick="showProject('pandora-site')">
+          <img src="images/pandora-site.jpg" class="portfolio-card-img" alt="Homepage of the Longing for Pandora research website">
           <span class="card-badge" style="background:var(--blush);color:var(--ink-mid);">Coded Website</span>
           <div class="portfolio-card-tag">Research & Web Development</div>
           <h3 class="portfolio-card-title">Longing for Pandora — Research Website</h3>
@@ -754,6 +870,7 @@ footer {
           <span class="card-arrow">↗</span>
         </div>
        <div class="portfolio-card" onclick="showProject('charlotte')">
+          <img src="images/charlotte.jpg" class="portfolio-card-img" alt="Close-up photo of a dairy cow, from the Charlotte Winder animal welfare story">
           <span class="card-badge" style="background:var(--blush);color:var(--ink-mid);">Scrollytelling</span>
           <div class="portfolio-card-tag">Digital Storytelling</div>
           <h3 class="portfolio-card-title">Charlotte Winder: A Compassionate Voice for Rural Animal Welfare</h3>
@@ -762,10 +879,10 @@ footer {
         </div>
       </div>
     </div>
-
+ 
   </div>
 </div>
-
+ 
 <!-- ════════ PROJECT DETAIL ════════ -->
 <div id="page-project" class="page">
   <div class="project-wrap pt-nav">
@@ -773,7 +890,7 @@ footer {
     <div id="project-content"></div>
   </div>
 </div>
-
+ 
 <!-- ════════ RESUME ════════ -->
 <div id="page-resume" class="page">
   <div class="resume-wrap pt-nav">
@@ -878,7 +995,7 @@ footer {
  
   </div>
 </div>
-
+ 
 <!-- ════════ CONTACT ════════ -->
 <div id="page-contact" class="page">
   <div class="contact-wrap pt-nav">
@@ -887,12 +1004,12 @@ footer {
       <div>
         <h2 class="contact-display">Let's work<br><em>together.</em></h2>
         <p class="contact-intro">I'm currently open to full-time roles in communications, digital design, and web content. Based in Barrie, Ontario — available for remote and hybrid work across the Toronto corridor.</p>
-        <a class="contact-link-row" href="mailto:your@email.com">
+        <a class="contact-link-row" href="mailto:Laurencurry2004@gmail.com">
           <div class="cl-icon">✉</div>
-          your@email.com
+          Laurencurry2004@gmail.com
           <span class="cl-arrow">↗</span>
         </a>
-        <a class="contact-link-row" href="https://linkedin.com/in/yourprofile" target="_blank">
+        <a class="contact-link-row" href="https://linkedin.com/in/REPLACE-WITH-YOUR-LINKEDIN" target="_blank">
           <div class="cl-icon" style="font-size:0.7rem;font-weight:500;letter-spacing:0.02em">in</div>
           LinkedIn
           <span class="cl-arrow">↗</span>
@@ -916,14 +1033,14 @@ footer {
     </div>
   </div>
 </div>
-
+ 
 <!-- FOOTER -->
 <footer>
   <span class="footer-name">Lauren Curry</span>
   <span>Communications & Digital Design</span>
   <span>Barrie, Ontario · © 2026</span>
 </footer>
-
+ 
 <script>
 const projects = {
   'easter-story': {
@@ -931,6 +1048,9 @@ const projects = {
     title: "Jesus's Easter Story: From Darkness to Light",
     desc: 'Published in CTRL+ALT+DH, University of Guelph Digital Humanities Journal (Issue 3)',
     role: 'Writer & Creative Director', type: 'Published · AI-Collaborative Storytelling', year: '2025', skills: 'AI-collaborative content creation, iterative creative direction, editorial judgment, critical writing',
+    image: 'images/easter-story.jpg',
+    imageAlt: "Illustrated cover of Jesus's Easter Story: From Darkness to Light, showing Jesus surrounded by a diverse crowd",
+    credit: 'Cover illustration created through iterative collaboration with generative AI.',
     body: `<p>Wrote and art-directed an illustrated children's book retelling the Easter story through iterative collaboration with generative AI.</p><p>Authored an accompanying reflection essay on the creative, technical, and ethical dimensions of AI-assisted storytelling, especially in religious and theological contexts. Published in the university's undergraduate digital humanities journal.</p><p><a href="https://cts-guelph.github.io/ctrl-alt-dh/jesuss-easter-story-from-darkness-to-light.html" target="_blank">Read the full piece →</a></p>`
   },
   'smallholder': {
@@ -938,7 +1058,10 @@ const projects = {
     title: 'Insect Nets to Protect Crops of Smallholder Farmers',
     desc: 'Published on Farmpedia.org',
     role: 'Author & Researcher', type: 'Published · Encyclopedia Chapter', year: '2022', skills: 'Research synthesis, writing for a non-expert audience, structuring long-form web content, working with visuals',
-    body: `<p>Researched and authored an encyclopedia chapter on eco-friendly pest control for smallholder farmers, which was published on <a href="http://farmpedia.org" target="_blank">Farmpedia.org</a>, created as an open-access agricultural resource for international use.</p><p>Synthesized 18+ academic and field sources into clear, actionable content, including structured sections, an image/figure caption, and a practical "getting started" resource guide. Written with the intended non-expert audience, so that the content is clear and easy to understand.</p><p><a href="https://farmpedia.org/index.php/Chapters_7.20#Lauren_Curry,_University_of_Guelph,_Canada" target="_blank">Read the full chapter →</a></p>`
+    image: 'images/smallholder.png',
+    imageAlt: 'Screenshot of the published Farmpedia.org chapter, "Insect Nets to Protect Crops of Smallholder Farmers"',
+    credit: 'Screenshot of the published chapter on Farmpedia.org.',
+    body: `<p>Researched and authored an encyclopedia chapter on eco-friendly pest control for smallholder farmers, which was published on <a href="http://farmpedia.org" target="_blank">Farmpedia.org</a>, created as an open-access agricultural resource for international use.</p><p>Synthesized 18+ academic and field sources into clear, actionable content, including structured sections, an image/figure caption, and a practical "getting started" resource guide. Written with the intended non-expert audience, so that the content is clear and easy to understand.</p><p><a href="https://farmpedia.org/wiki/Insect-nets-to-protect-crops-of-smallholder-farmers" target="_blank">Read the full chapter →</a></p>`
   },
   'pandora-poster': {
     tag: 'Visual Design · Print',
@@ -946,6 +1069,8 @@ const projects = {
     desc: 'A 36×48" academic research poster designed for a live capstone presentation at the University of Guelph, exploring how Avatar fans use creative practices to build an ecological utopia.',
     role: 'Designer & Researcher', type: 'Print Design', year: '2026', skills: 'Graphic Design, Typography, Research Communication',
     image: 'Longing For Pandora (36 x 48 in) (1).png',
+    imageAlt: 'Longing for Pandora 36 by 48 inch printed research poster',
+    credit: 'Poster design and research by Lauren Curry.',
     body: `<p>Designed as one of two deliverables for the Longing for Pandora capstone project, this poster was printed at 36×48" and displayed at a live academic presentation at the University of Guelph.</p><p>The design translates complex academic research into a visually compelling format — balancing scholarly rigour with accessibility. The poster covers three chapters of research: Constructing Utopia, Speaking Into Being, and Feeling Utopia, drawing on fanfiction analysis, Na'vi language communities, and sentiment analysis across TikTok and Reddit.</p><p><a href="https://laurencurry2004.github.io/LongingforPandora.github.io/index.html" target="_blank">View the companion research website →</a></p>`
   },
   'pandora-site': {
@@ -953,6 +1078,9 @@ const projects = {
     title: 'Longing for Pandora — Research Website',
     desc: 'A multi-chapter academic research site built from scratch in HTML & CSS, presenting original research on how Avatar fans use creative practices to construct Pandora as an ecological utopia.',
     role: 'Researcher & Web Developer', type: 'Coded Website', year: '2026', skills: 'HTML & CSS, Web Design, Academic Research, Digital Humanities',
+    image: 'images/pandora-site.jpg',
+    imageAlt: 'Homepage of the Longing for Pandora research website',
+    credit: 'Screenshot of the Longing for Pandora research website homepage, designed and built by Lauren Curry.',
     body: `<p>Built entirely from scratch in HTML and CSS, this multi-page research site presents the full findings of the Longing for Pandora capstone — a digital humanities project examining Avatar fan communities through the lenses of fan theories, affect theory, and utopian theory.</p><p>The site organises three chapters of original research spanning fanfiction analysis, Na'vi language community ethnography, and social media sentiment analysis, making academic work publicly accessible through thoughtful web design.</p><p><a href="https://laurencurry2004.github.io/LongingforPandora.github.io/index.html" target="_blank">Visit the live site →</a></p><p><a href="#" onclick="showProject('pandora-poster');return false;">View the companion research poster →</a></p>`
   },
   'infographic': {
@@ -960,6 +1088,9 @@ const projects = {
     title: 'Meatless Diet Infographic',
     desc: 'A visual communication piece translating nutritional research on plant-based diets into a clear, accessible graphic designed for a general audience.',
     role: 'Designer & Researcher', type: 'Visual Design', year: '2022', skills: 'Canva, Visual Communication, Data Design',
+    image: 'images/infographic.jpg',
+    imageAlt: 'Why You Should Go Meatless Today infographic, with statistics on agriculture\'s land use, emissions, and water use',
+    credit: 'Design by Lauren Curry. Data sources cited within the graphic.',
     body: `<p>Applied core visual communication skills through data visualization, information hierarchy, and audience-focused layout, to turn research on meat consumption's environmental impact into a clear, engaging infographic.</p><p>Used pie charts and bar graphs for fast data comprehension, a vertical "story" flow to guide the reader, and a consistent color system with strategic bolding to reinforce key takeaways and visual cohesion.</p>`
   },
   'charlotte': {
@@ -967,10 +1098,13 @@ const projects = {
     title: 'Charlotte Winder: A Compassionate Voice for Rural Animal Welfare',
     desc: 'A scrollytelling narrative built in Shorthand bringing Charlotte Winder\'s story and advocacy for rural animal welfare to life through immersive digital design.',
     role: 'Writer & Digital Designer', type: 'Scrollytelling', year: '2024', skills: 'Digital Storytelling, Shorthand, Writing, Visual Design',
+    image: 'images/charlotte.jpg',
+    imageAlt: 'Close-up photograph of a dairy cow, from the Charlotte Winder rural animal welfare story',
+    credit: 'ADD PHOTO CREDIT HERE',
     body: `<p>Built using Shorthand's scrollytelling platform, this piece tells the story of Charlotte Winder — a compassionate advocate for rural animal welfare — through immersive scroll-driven narrative design.</p><p>The project combines writing, visual layout, and digital storytelling techniques to create an experience that draws the reader into the subject rather than presenting information passively.</p><p><a href="https://preview.shorthand.com/vdcD4mqKtOMDjR8k" target="_blank">Read the full story →</a></p>`
   }
 };
-
+ 
 function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
@@ -979,7 +1113,22 @@ function showPage(page) {
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
+ 
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+ 
+function closeMenu() {
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+ 
+function navGo(page) {
+  showPage(page);
+  closeMenu();
+}
+ 
 function showProject(id) {
   const p = projects[id];
   if (!p) return;
@@ -994,7 +1143,10 @@ function showProject(id) {
       <div class="proj-meta-item"><label>Skills</label><span>${p.skills}</span></div>
     </div>
     ${p.image
-      ? `<img src="${p.image}" style="width:100%;margin-bottom:3rem;border:1px solid var(--border);" alt="${p.title}">`
+      ? `<figure style="margin-bottom:3rem;">
+           <img src="${p.image}" style="width:100%;display:block;border:1px solid var(--border);" alt="${p.imageAlt || p.title}">
+           ${p.credit ? `<figcaption style="font-size:0.72rem;color:var(--ink-soft);font-style:italic;margin-top:0.6rem;">${p.credit}</figcaption>` : ''}
+         </figure>`
       : `<div class="proj-img-placeholder">Add image or preview here</div>`
     }
     <div class="proj-body">${p.body}</div>
@@ -1006,3 +1158,4 @@ function showProject(id) {
 </script>
 </body>
 </html>
+ 

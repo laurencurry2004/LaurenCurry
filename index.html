@@ -50,12 +50,11 @@ nav {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  overflow: hidden;
 }
 
 .nav-logo-wrap {
-  height: 156px;
-  max-height: 95%;
+  height: 158px;
+  max-height: 98%;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -68,7 +67,7 @@ nav {
   height: 100%;
   width: auto;
   display: block;
-  transform: scale(1.15);
+  transform: scale(1.25);
   transform-origin: center;
 }
 
@@ -408,9 +407,23 @@ nav {
   line-height: 1.3;
   margin-bottom: 0.6rem;
   color: var(--ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.portfolio-card-desc { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.6; font-weight: 400; flex: 1; }
+.portfolio-card-desc {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  font-weight: 400;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 .card-note {
   font-size: 0.65rem;
@@ -1134,7 +1147,9 @@ const projects = {
   }
 };
 
-function showPage(page) {
+const validPages = ['home', 'about', 'portfolio', 'resume', 'contact'];
+
+function renderPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
   document.querySelectorAll('.nav-links a').forEach(a => {
@@ -1143,24 +1158,9 @@ function showPage(page) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function toggleMenu() {
-  document.getElementById('nav-links').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('open');
-}
-
-function closeMenu() {
-  document.getElementById('nav-links').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-}
-
-function navGo(page) {
-  showPage(page);
-  closeMenu();
-}
-
-function showProject(id) {
+function renderProject(id) {
   const p = projects[id];
-  if (!p) return;
+  if (!p) { renderPage('home'); return; }
   document.getElementById('project-content').innerHTML = `
     <div class="proj-tag">${p.tag}</div>
     <h1 class="proj-title">${p.title}</h1>
@@ -1184,6 +1184,53 @@ function showProject(id) {
   document.getElementById('page-project').classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function renderFromHash() {
+  const hash = location.hash.slice(1);
+  if (hash.startsWith('project/')) {
+    renderProject(hash.slice('project/'.length));
+  } else if (validPages.includes(hash)) {
+    renderPage(hash);
+  } else {
+    renderPage('home');
+  }
+}
+
+function showPage(page) {
+  if (location.hash.slice(1) === page) {
+    renderPage(page);
+  } else {
+    location.hash = page;
+  }
+}
+
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+
+function closeMenu() {
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+function navGo(page) {
+  showPage(page);
+  closeMenu();
+}
+
+function showProject(id) {
+  const target = 'project/' + id;
+  if (location.hash.slice(1) === target) {
+    renderProject(id);
+  } else {
+    location.hash = target;
+  }
+}
+
+window.addEventListener('hashchange', renderFromHash);
+renderFromHash();
 </script>
+
 </body>
 </html>

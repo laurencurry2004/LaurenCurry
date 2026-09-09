@@ -44,7 +44,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 160px;
+  height: 108px;
   padding: 0 5rem;
   background: rgba(250,247,244,0.94);
   backdrop-filter: blur(12px);
@@ -53,9 +53,8 @@ nav {
 }
 
 .nav-logo-wrap {
-  height: 158px;
-  max-height: 98%;
-  overflow: hidden;
+  height: 98px;
+  max-height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,8 +66,6 @@ nav {
   height: 100%;
   width: auto;
   display: block;
-  transform: scale(1.25);
-  transform-origin: center;
 }
 
 .nav-links {
@@ -125,7 +122,7 @@ nav {
 .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); width: 26px; }
 
 /* ── SHARED LAYOUT ── */
-.pt-nav { padding-top: 220px; }
+.pt-nav { padding-top: 150px; }
 
 .section-eyebrow {
   display: inline-block;
@@ -144,8 +141,8 @@ nav {
   flex-direction: column;
   justify-content: center;
   padding: 0 5rem;
-  padding-top: 220px;
-  padding-bottom: 7rem;
+  padding-top: 150px;
+  padding-bottom: 150px;
   position: relative;
 }
 
@@ -318,7 +315,7 @@ nav {
   grid-template-columns: 1fr 1.5fr;
   gap: 6rem;
   align-items: start;
-  padding: 220px 5rem 6rem; 
+  padding: 150px 5rem 6rem; 
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -361,7 +358,7 @@ nav {
 
 /* ── PORTFOLIO ── */
 .portfolio-wrap {
-  padding: 220px 5rem 6rem;
+  padding: 150px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -482,7 +479,7 @@ nav {
 
 /* ── PROJECT DETAIL ── */
 .project-wrap {
-  padding: 220px 5rem 6rem;
+  padding: 150px 5rem 6rem;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -553,7 +550,7 @@ nav {
 .proj-body a:hover { text-decoration: underline; }
 
 /* ── RESUME ── */
-.resume-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
+.resume-wrap { padding: 150px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
 
 .resume-top {
   display: flex;
@@ -589,7 +586,7 @@ nav {
 .chip { padding: 0.4rem 1rem; border: 1px solid var(--border); font-size: 0.78rem; color: var(--ink-mid); font-weight: 300; letter-spacing: 0.02em; }
 
 /* ── CONTACT ── */
-.contact-wrap { padding: 220px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
+.contact-wrap { padding: 150px 5rem 6rem; max-width: 1080px; margin: 0 auto; }
 
 .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 7rem; align-items: start; }
 
@@ -661,6 +658,12 @@ nav {
 
 .fsubmit:hover { background: var(--rose); }
 
+.form-status {
+  font-size: 0.8rem;
+  color: var(--ink-mid);
+  margin-top: -0.5rem;
+}
+
 /* ── FOOTER ── */
 footer {
   border-top: 1px solid var(--border);
@@ -681,17 +684,16 @@ footer {
 @media (max-width: 840px) {
   nav {
     padding: 0 1.5rem;
-    height: 100px;
+    height: 78px;
   }
 
   .nav-logo-wrap {
-    height: 90px;
+    height: 68px;
     width: auto;
-    overflow: visible;
   }
 
   .nav-logo {
-    height: 84px;
+    height: 62px;
     width: auto;
     max-width: none;
   }
@@ -729,7 +731,7 @@ footer {
 
   .nav-links {
     position: fixed;
-    top: 100px;
+    top: 78px;
     left: 1rem;
     right: 1rem;
     flex-direction: column;
@@ -846,7 +848,11 @@ footer {
   }
 
   .pt-nav, .hero, .about-layout, .portfolio-wrap, .project-wrap, .resume-wrap, .contact-wrap {
-    padding-top: 150px;
+    padding-top: 110px;
+  }
+
+  .hero {
+    padding-bottom: 110px;
   }
 }
 
@@ -860,7 +866,7 @@ footer {
 <!-- NAV -->
 <nav>
   <div class="nav-logo-wrap" onclick="showPage('home')">
-    <img src="LaurenCurryLogo.png" class="nav-logo">
+    <img src="4.png" class="nav-logo">
   </div>
   <ul class="nav-links" id="nav-links">
     <li><a onclick="navGo('home')" data-page="home">Home</a></li>
@@ -1186,17 +1192,18 @@ footer {
       <div class="cform">
         <div class="fgroup">
           <label>Name</label>
-          <input type="text" placeholder="Your name">
+          <input type="text" id="contact-name" placeholder="Your name">
         </div>
         <div class="fgroup">
           <label>Email</label>
-          <input type="email" placeholder="your@email.com">
+          <input type="email" id="contact-email" placeholder="your@email.com">
         </div>
         <div class="fgroup">
           <label>Message</label>
-          <textarea rows="6" placeholder="Tell me about the role or project..."></textarea>
+          <textarea rows="6" id="contact-message" placeholder="Tell me about the role or project..."></textarea>
         </div>
-        <button class="fsubmit">Send message</button>
+        <p class="form-status" id="form-status"></p>
+        <button type="button" class="fsubmit" onclick="sendMessage()">Send message</button>
       </div>
     </div>
   </div>
@@ -1364,6 +1371,23 @@ function showProject(id) {
   } else {
     location.hash = target;
   }
+}
+
+function sendMessage() {
+  const name = document.getElementById('contact-name').value.trim();
+  const email = document.getElementById('contact-email').value.trim();
+  const message = document.getElementById('contact-message').value.trim();
+  const status = document.getElementById('form-status');
+
+  if (!name || !email || !message) {
+    status.textContent = 'Please fill in your name, email, and message first.';
+    return;
+  }
+
+  const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+  const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+  status.textContent = 'Opening your email app…';
+  window.location.href = `mailto:Laurencurry2004@gmail.com?subject=${subject}&body=${body}`;
 }
 
 window.addEventListener('hashchange', renderFromHash);

@@ -1006,7 +1006,7 @@ footer {
       <div class="section-bar">
         <span class="section-bar-label" style="color:var(--ink-mid);">Visual design</span>
         <div class="section-bar-line" style="background:var(--border);"></div>
-        <span class="section-bar-count">2 pieces</span>
+        <span class="section-bar-count">3 pieces</span>
       </div>
       <div class="card-grid-3">
         <div class="portfolio-card" onclick="showProject('pandora-poster')">
@@ -1024,6 +1024,15 @@ footer {
           <div class="portfolio-card-tag">Visual Design</div>
           <h3 class="portfolio-card-title">Meatless Diet Infographic</h3>
           <p class="portfolio-card-desc">Visual communication design translating nutritional research into a clear, accessible graphic for a general audience.</p>
+          <span class="card-arrow">↗</span>
+        </div>
+        <div class="portfolio-card" onclick="showProject('northline')">
+          <img src="northline-card.jpg" class="portfolio-card-img" alt="Cover of the NorthLine Home Services concept sales book">
+          <div class="card-badge-band" style="background:var(--blush);color:var(--ink-mid);">Visual Design</div>
+          <div class="portfolio-card-tag">Marketing &amp; Layout Design</div>
+          <h3 class="portfolio-card-title">NorthLine Home Services — Sales Book</h3>
+          <p class="portfolio-card-desc">A 10-page concept sales book for a fictional home renovation company, showing brand direction, layout, typography, and marketing copy.</p>
+          <p class="card-note">Concept project</p>
           <span class="card-arrow">↗</span>
         </div>
       </div>
@@ -1271,6 +1280,16 @@ const projects = {
     credit: 'Design by Lauren Curry. Data sources cited within the graphic.',
     body: `<p>Applied core visual communication skills through data visualization, information hierarchy, and audience-focused layout, to turn research on meat consumption's environmental impact into a clear, engaging infographic.</p><p>Used pie charts and bar graphs for fast data comprehension, a vertical "story" flow to guide the reader, and a consistent color system with strategic bolding to reinforce key takeaways and visual cohesion.</p>`
   },
+  'northline': {
+    tag: 'Visual Design · Marketing · Concept Project',
+    title: 'NorthLine Home Services — Sales Book',
+    desc: 'A 10-page concept sales book for a fictional home renovation company, created to demonstrate marketing, graphic design, layout, and presentation skills.',
+    role: 'Designer, Writer & Art Director', type: 'Concept Project · Print / PDF', year: '2026', skills: 'Layout Design, Typography, Brand Presentation, Marketing Copywriting',
+    image: 'northline-cover.jpg',
+    imageAlt: 'Cover of the NorthLine Home Services concept sales book',
+    credit: 'Concept, layout, typography, written content, and visual direction by Lauren Curry. Photography from Pexels.',
+    body: `<p>NorthLine Home Services is a fictional company created to show how a service business can present itself clearly and professionally. The book covers the brand story, services, a featured project, the client experience, testimonials, and a call to action.</p><p>I developed the visual direction (a warm neutral palette, a serif and sans-serif type pairing, and a simple line-art logo), wrote the copy, and laid out each page so that the content is easy to scan and the brand feels consistent from cover to close.</p><p>All company information, statistics, testimonials, and contact details are fictional and appear for demonstration only. Photography is sourced from Pexels.</p><p><a href="Lauren_Curry_NorthLine_Sales_Book.pdf" target="_blank">View the full sales book (PDF) →</a></p>`
+  },
   'charlotte': {
     tag: 'Digital Storytelling · Visual Design',
     title: 'Charlotte Winder: A Compassionate Voice for Rural Animal Welfare',
@@ -1278,7 +1297,7 @@ const projects = {
     role: 'Writer & Digital Designer', type: 'Scrollytelling', year: '2024', skills: 'Digital Storytelling, Shorthand, Writing, Visual Design',
     image: 'charlottewinder.jpg',
     imageAlt: 'Close-up photograph of a dairy cow, from the Charlotte Winder rural animal welfare story',
-    credit: 'ADD PHOTO CREDIT HERE',
+    credit: '',
     body: `<p>Built using Shorthand's scrollytelling platform, this piece tells the story of Charlotte Winder — a compassionate advocate for rural animal welfare — through immersive scroll-driven narrative design.</p><p>The project combines writing, visual layout, and digital storytelling techniques to create an experience that draws the reader into the subject rather than presenting information passively.</p><p><a href="https://preview.shorthand.com/vdcD4mqKtOMDjR8k" target="_blank">Read the full story →</a></p>`
   }
 };
